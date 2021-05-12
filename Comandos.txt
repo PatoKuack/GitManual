@@ -1,5 +1,6 @@
 git init: arranca un repositorio.
-git add ___.txt: agrega el archivo al repositorio.
+git add ___.txt: agrega el archivo al repositorio (en la memoria RAM). se prepara para ingresarse a la base de datos.
+git rm --cached __.txt: elimina el archivo del repositorio antes de que ingrese a la base de datos.
 git commit: envia los ultimos cambios del archivo a la base de datos del sistema de control de versiones para controlar los cambios que se le hayan hecho. *Cada que se agregan (add) archivos se tiene que enviar los cambios a la base de datos (commit).
 git commit -m "mensage": el guión y la eme son para indicar que se le agregará un mensaje para poder verlo en el futuro como una referencia del cambio.
 git add .: agrega todos los cambios que se hayan hecho a los archivos de la carpeta en donde se esta pocicionado.

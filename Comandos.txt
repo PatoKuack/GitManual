@@ -1,0 +1,10 @@
+git init: arranca un repositorio.
+git add ___.txt: agrega el archivo al repositorio.
+git commit: envia los ultimos cambios del archivo a la base de datos del sistema de control de versiones para controlar los cambios que se le hayan hecho. *Cada que se agregan (add) archivos se tiene que enviar los cambios a la base de datos (commit).
+git commit -m "mensage": el guión y la eme son para indicar que se le agregará un mensaje para poder verlo en el futuro como una referencia del cambio.
+git add .: agrega todos los cambios que se hayan hecho a los archivos de la carpeta en donde se esta pocicionado.
+git status: muestra el estatus de los cambios hechos, se usa para verificar los cambios.
+git show: muestra todos los cambios historicos hechos, cuando y quien hizo los cambios.
+git log ___.txt: muestra el historial completo del archivo.
+git push: permite enviar a otro repositorio remoto lo que se esta haciendo, tambien puede traer lo de otros repositorios remotos.
+

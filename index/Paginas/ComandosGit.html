@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Bash</title>
+</head>
+<body>
+  <header>
+    <h1>Git Bash</h1>
+  </header>
+  <main>
+    <section>
+      <div>
+        <dl>
+          <dt>git init</dt>
+          <dd>Arranca un repositorio.</dd>
+          <dt>git add</dt>
+          <dd>
+            <dl>
+              <dt>git add <span>___.txt</span></dt>
+              <dd>Agrega el archivo o sus cambios al repositorio (en la memoria RAM). se prepara para ingresarse a la base de datos.</dd>
+              <dt>git add <span>.</span></dt>
+              <dd>Agrega todos los cambios que se hayan hecho a los archivos de la carpeta en donde se esta pocicionado.</dd>
+            </dl>
+          </dd>
+          <dl>git rm</dl>
+          <dd>
+            <dl>
+              <dt>git rm --cached</dt>
+              <dd>Elimina los archivos del área de Staging y del próximo commit pero los mantiene en nuestro disco duro.</dd>
+              <dt>git rm --cached <span>__.txt</span></dt>
+              <dd>Elimina el archivo del repositorio antes de que ingrese a la base de datos.</dd>
+              <dt>git rm --force</dt>
+              <dd>Elimina los archivos de Git y del disco duro. Git siempre guarda todo, por lo que podemos acceder al registro de la existencia de los archivos, de modo que podremos recuperarlos si es necesario (pero debemos usar comandos más avanzados).</dd>
+            </dl>
+          </dd>
+          <dt>git commit</dt>
+          <dd>
+            <dl>
+              <dt>git commit</dt>
+              <dd>Envia los ultimos cambios del archivo a la base de datos del sistema de control de versiones para controlar los cambios que se le hayan hecho. *Cada que se agregan (add) archivos se tiene que enviar los cambios a la base de datos (commit). Si no se le agrega mensaje se abre un VIN donde se coloca el mensaje con CTRL+i y se finaliza el VIN con ESC+SHIFT+Z+Z.</dd>
+              <dt>git commit -m "<span>mensage</span>"</dt>
+              <dd>La "-m" indica que se le agregará un mensaje para poder verlo en el futuro como una referencia del cambio.</dd>
+            </dl>
+            <dt>git commit -am "<span>mensaje</span>"</dt>
+            <dd>Hace un add junto con el commit y el mensaje, solo se debe utilizar con archivos que ya hayan sido ejecutados con un "git add" previamente, es decir, no funciona para archivos recien creados.</dd>
+          </dd>
+          <dt>git status</dt>
+          <dd>Muestra el estatus de los cambios hechos, se usa para verificar los cambios.</dd>
+          <dt>git show</dt>
+          <dd>
+            <dl>
+              <dt>git show</dt>
+              <dd>Muestra todos los cambios historicos hechos, cuando y quien hizo los cambios.</dd>
+              <dt>git show <span>__.txt</span></dt>
+              <dd>Muestra los cambios de un archivo especifico.</dd>
+            </dl>
+          </dd>
+          <dt>git log</dt>
+          <dd>
+            <dl>
+              <dt>git log <span>___.txt</span></dt>
+              <dd>Muestra el historial completo del archivo.</dd>
+              <dt>git log --stat</dt>
+              <dd>Muestra los cambios especificos realizados en los archivos apartir del commit.</dd>
+            </dl>
+          </dd>
+          <dt>git config</dt>
+          <dd>
+            <dl>
+              <dt>git config</dt>
+              <dd>Muestra una lista de todas las configuraciones que tiene git y como funcionan.</dd>
+              <dt>git config --list</dt>
+              <dd>Muestra la configuracion por defecto del git y las que le faltan.</dd>
+              <dt>git config --list --show-origin</dt>
+              <dd>Muestra las configuraciones guardadas.</dd>
+              <dt>git config --global user.name "<span>NAME</span>"</dt>
+              <dd>Modifica la configuracion de los usuarios globales de git colocando un nombre.</dd>
+              <dt>git config --global user.email "<span>E-MAIL</span>"</dt>
+              <dd>Lo mismo pero coloca un e-mal.</dd>
+            </dl>
+          </dd>
+          <dt>git diff</dt>
+          <dd>
+            <dl>
+              <dt>git diff</dt>
+              <dd>Muestra los cambios entre los cambios guardados en la memoria RAM y los guardados en el disco duro.</dd>
+              <dt>git diff <span>_version_ _version_</span></dt>
+              <dd>compara dos versiones guardadas de un archivo.</dd>
+            </dl>
+          </dd>
+          <dt>git reset</dt>
+          <dd>
+            <dl>
+              <dt>git reset --soft</dt>
+              <dd>Borramos todo el historial y los registros de Git pero guardamos los cambios que tengamos en Staging, así podemos aplicar las últimas actualizaciones a un nuevo commit.</dd>
+              <dt>git reset <span>_version_</span> --soft</dt>
+              <dd>Se posiciona en la version especificada y elimina las versiones posteriores a esa del repositorio.</dd>
+              <dt>git reset --hard</dt>
+              <dd>Borra todo. Todo todito, absolutamente todo. Toda la información de los commits y del área de staging, se borra el historial.</dd>
+              <dt>git reset <span>_version_</span> --hard</dt>
+              <dd>Restaura los documentos a la version especificada del repositorio y elimina las versiones posteriores de git y del disco duro.</dd>
+              <dt>git reset HEAD</dt>
+              <dd>Este es el comando para sacar archivos del área de Staging. No para borrarlos ni nada de eso, solo para que los últimos cambios de estos archivos no se envíen al último commit, a menos que cambiemos de opinión y los incluyamos de nuevo en staging con git add, por supuesto.</dd>
+            </dl>
+          </dd>
+          <dt>git checkout</dt>
+          <dd>
+            <dl>
+              <dt>git checkout <span>_version_ _archivo.txt_</span></dt>
+              <dd>Nos devuelve el archivo especificado a la version especificada. Si se hace un commit en este estado se borrara todo lo creado despues de esta version.</dd>
+              <dt>git checkout master _archivo.txt_</dt>
+              <dd>nos devuelve la ultima version del archivo especificado.</dd>
+            </dl>
+          </dd>
+          <dt>git clone <span>URL_del_servidor_remoto</span></dt>
+          <dd>Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git.</dd>
+          <dt>git push</dt>
+          <dd>Luego de hacer git add y git commit debemos ejecutar este comando para mandar los cambios al servidor remoto.</dd>
+          <dt>git fetch</dt>
+          <dd>Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (en caso de que hayan, por supuesto).</dd>
+          <dt>git merge</dt>
+          <dd>También usamos el comando git merge con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo.</dd>
+          <dt>git pull</dt>
+          <dd>Básicamente, git fetch y git merge al mismo tiempo.</dd>
+          <dt>q</dt>
+          <dd>salirte de un estado.</dd>
+        </dl>
+      </div>
+    </section>
+    <section>
+      <div>
+        <h3>Referencias:</h3>
+        <p><a target="_blank" href="https://platzi.com/clases/1557-git-github/23295-git-reset-vs-git-rm/">rm y reset</a></p>
+        <p><a target="_blank" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow Workflow</a></p>
+        <p><a target="_blank" href="https://danielkummer.github.io/git-flow-cheatsheet/">Git-flow cheatsheet</a></p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

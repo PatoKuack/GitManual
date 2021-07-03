@@ -43,9 +43,9 @@
               <dd>Envia los ultimos cambios del archivo a la base de datos del sistema de control de versiones para controlar los cambios que se le hayan hecho. *Cada que se agregan (add) archivos se tiene que enviar los cambios a la base de datos (commit). Si no se le agrega mensaje se abre un VIN donde se coloca el mensaje con CTRL+i y se finaliza el VIN con ESC+SHIFT+Z+Z.</dd>
               <dt>git commit -m "<span>mensage</span>"</dt>
               <dd>La "-m" indica que se le agregará un mensaje para poder verlo en el futuro como una referencia del cambio.</dd>
+              <dt>git commit -am "<span>mensaje</span>"</dt>
+              <dd>Hace un add junto con el commit y el mensaje, solo se debe utilizar con archivos que ya hayan sido ejecutados con un "git add" previamente, es decir, no funciona para archivos recien creados.</dd>
             </dl>
-            <dt>git commit -am "<span>mensaje</span>"</dt>
-            <dd>Hace un add junto con el commit y el mensaje, solo se debe utilizar con archivos que ya hayan sido ejecutados con un "git add" previamente, es decir, no funciona para archivos recien creados.</dd>
           </dd>
           <dt>git status</dt>
           <dd>Muestra el estatus de los cambios hechos, se usa para verificar los cambios.</dd>
@@ -53,7 +53,7 @@
           <dd>
             <dl>
               <dt>git show</dt>
-              <dd>Muestra todos los cambios historicos hechos, cuando y quien hizo los cambios.</dd>
+              <dd>Muestra todos los cambios historicos hechos, cuando y quien hizo los cambios. También muestra a que apunta el HEAD (principalmente solo a 'master')</dd>
               <dt>git show <span>__.txt</span></dt>
               <dd>Muestra los cambios de un archivo especifico.</dd>
             </dl>
@@ -87,7 +87,7 @@
             <dl>
               <dt>git diff</dt>
               <dd>Muestra los cambios entre los cambios guardados en la memoria RAM y los guardados en el disco duro.</dd>
-              <dt>git diff <span>_version_ _version_</span></dt>
+              <dt>git diff <span>_id-commit_ _id-commit_</span></dt>
               <dd>compara dos versiones guardadas de un archivo.</dd>
             </dl>
           </dd>
@@ -96,23 +96,14 @@
             <dl>
               <dt>git reset --soft</dt>
               <dd>Borramos todo el historial y los registros de Git pero guardamos los cambios que tengamos en Staging, así podemos aplicar las últimas actualizaciones a un nuevo commit.</dd>
-              <dt>git reset <span>_version_</span> --soft</dt>
+              <dt>git reset <span>_id-commit_</span> --soft</dt>
               <dd>Se posiciona en la version especificada y elimina las versiones posteriores a esa del repositorio.</dd>
               <dt>git reset --hard</dt>
               <dd>Borra todo. Todo todito, absolutamente todo. Toda la información de los commits y del área de staging, se borra el historial.</dd>
-              <dt>git reset <span>_version_</span> --hard</dt>
+              <dt>git reset <span>_id-commit_</span> --hard</dt>
               <dd>Restaura los documentos a la version especificada del repositorio y elimina las versiones posteriores de git y del disco duro.</dd>
               <dt>git reset HEAD</dt>
               <dd>Este es el comando para sacar archivos del área de Staging. No para borrarlos ni nada de eso, solo para que los últimos cambios de estos archivos no se envíen al último commit, a menos que cambiemos de opinión y los incluyamos de nuevo en staging con git add, por supuesto.</dd>
-            </dl>
-          </dd>
-          <dt>git checkout</dt>
-          <dd>
-            <dl>
-              <dt>git checkout <span>_version_ _archivo.txt_</span></dt>
-              <dd>Nos devuelve el archivo especificado a la version especificada. Si se hace un commit en este estado se borrara todo lo creado despues de esta version.</dd>
-              <dt>git checkout master _archivo.txt_</dt>
-              <dd>nos devuelve la ultima version del archivo especificado.</dd>
             </dl>
           </dd>
           <dt>git clone <span>URL_del_servidor_remoto</span></dt>
@@ -120,11 +111,72 @@
           <dt>git push</dt>
           <dd>Luego de hacer git add y git commit debemos ejecutar este comando para mandar los cambios al servidor remoto.</dd>
           <dt>git fetch</dt>
-          <dd>Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (en caso de que hayan, por supuesto).</dd>
-          <dt>git merge</dt>
-          <dd>También usamos el comando git merge con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo.</dd>
+          <dd>Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (en caso de que hayan).</dd>
+          <dt>git merge <span>nombreRama</span></dt>
+          <dd>Usamos este comando con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo. Se debe posicionar en la rama a la que se le quieren fusionar los cambios.</dd>
           <dt>git pull</dt>
-          <dd>Básicamente, git fetch y git merge al mismo tiempo.</dd>
+          <dd>Basicamente, git fetch y git merge al mismo tiempo.</dd>
+          <dt>git branch</dt>
+          <dd>
+            <dl>
+              <dt>git branch o git branch -l</dt>
+              <dd>Muestra una lista de todas las ramas que existen.</dd>
+              <dt>git branch <span>_nombreRama_</span></dt>
+              <dd>Crea una rama del proyecto con el nombre especificado. Esta rama contendrá una copia del último commit.</dd>
+              <dt>git branch -d <span>_nombreRama_</span></dt>
+              <dd>Elimina la rama especificada (con '-d' se fuerza el borrado).</dd>
+              <dt>git branch -m <span>_nombreRamaVieja_ _nombreRamaNueva_</span></dt>
+              <dd>Renombra una rama especificada.</dd>
+            </dl>
+          </dd>
+          <dt>git checkout</dt>
+          <dd>
+            (Se deben guardar los cambios correspondientes en el repositorio actual antes de cambiar de version del commit o de rama).
+            <dl>
+              <dt>git checkout <span>_id-commit_ _archivo.txt_</span></dt>
+              <dd>Nos devuelve el archivo especificado a la version de commit especificada. Si se hace un commit en este estado se borrara todo lo creado despues de esta version.</dd>
+              <dt>git checkout master _archivo.txt_</dt>
+              <dd>nos devuelve la ultima version del archivo especificado.</dd>
+              <dt>git checkout <span>_nombreRama_</span></dt>
+              <dd>Nos mueve a la rama especificada.</dd>
+              <dt>git checkout -b <span>_nombreRama_</span></dt>
+              <dd>Crea una nueva rama con el nombre especificado y nos posiciona en ella.</dd>
+            </dl>
+          </dd>
+          <dt>git remote</dt>
+          <dd>
+            <dl>
+              <dt>git remote</dt>
+              <dd>Muestra el tipo de repositorio que tenemos disponibles.</dd>
+              <dt>git remote -v</dt>
+              <dd>Muestra el tipo de repositorio disponible, su URL y las acciones que se pueden hacer con él como usar fetch (importar proyectos) o push (exportar proyectos).</dd>
+              <dt>git remote add origin <span>direcciónRepositorio</span></dt>
+              <dd>Agrega un orígen remoto de nuestros archivos.</dd>
+            </dl>
+          </dd>
+          <dt>git pull</dt>
+          <dd>
+            <dl>
+              <dt>git pull origin master</dt>
+              <dd>Importa desde "origin" a nuestra rama "master" el repositorio.</dd>
+              <dt>git pull origin master --allow-unrelated-histories</dt>
+              <dd>Permite fusionar la rama (o branch) remota con la rama (o branch) local.</dd>
+            </dl>
+          </dd>
+          <dt>git push origin master</dt>
+          <dd>Exporta o envia a "origin" la rama "master".</dd>
+          <dt>ssh-keygen -t rsa -b 4096 -C "<span>correo@gmail.com</span>"</dt>
+          <dd>Genera una llave de SSH, con  "-t" se especifica el algoritmo que se utilizará para crear la llave que en este caso es rsa, con "-b" se especifica que tan compleja es la llave y "4096" indica la complejidad de la llave desde una perspectiva matemática, con "-C" se indica a que correo electrónico va a estar conectada la llave y el cual debe ser el correo que tenemos en nuestro repositorio de GitHub.<br/>
+          Después de ingresar el código se puede ingresar una contraseña con espacios llamada "passphrase" para mayor seguridad.</dd>
+          Una vez que se tiene la llave se debe agregar al entorno (indicarle al sistema operativo que la llave existe).
+          <dt>eval $(ssh-agent -s)</dt>
+          <dd>Verifica que el servidor de llaves esta activo: "Agent" indica que el servidor de SSH esta activo, "pid" es el id del proceso y el número al final indica que el proceso esta activo.</dd>
+          <dt>ssh-add <span>~/.ssh/id_rsa</span></dt>
+          <dd>La "~" (alt+126) nos dirige al home en donde se encuentra la carpeta ".ssh" en donde se encuentran las llaves publicas y privadas.<br/>
+          El comando agregará la llave al sistema, debe contener la ruta de la llave privada.</dd>
+          Después de haber creando nuestro entorno local, nos conectamos con GitHub, remplazar la conexión HTTPS por una conexión SSH para hacer git pull y git push son usar contraseñas y no dejar de obtener una conexión segura.
+          <dt></dt>
+          <dd></dd>
           <dt>q</dt>
           <dd>salirte de un estado.</dd>
         </dl>

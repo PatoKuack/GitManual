@@ -4,18 +4,29 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Git Bash</title>
+  <link rel="stylesheet" href="../Estilos/styleGit1.css">
+  <title>Git Bash (Windows)</title>
 </head>
 <body>
   <header>
-    <h1>Git Bash</h1>
+    <h1>Git Bash (entorno Windows)</h1>
   </header>
   <main>
     <section>
+      <figure>
+        <img src="../Imgs/staging.jpg" alt="Comandos del stating (status, add, commit y reset)" title="Comandos del stating">
+        <img src="../Imgs/rm y reset.jpg" alt="Comandos rm y reset" title="Comandos rm y reset">
+        <img src="../Imgs/rm y reset 2.jpg" alt="Diferencia de comandos rm y reset" title="Diferencia de comandos rm y reset">
+        <img src="../Imgs/branch_merge.jpg" alt="Ramificación (branch y merge)" title="Ramificación (branch y merge)">
+      </figure>
       <div>
         <dl>
           <dt>git init</dt>
           <dd>Arranca un repositorio.</dd>
+          <dt>q</dt>
+          <dd>salirte de un estado.</dd>
+          <p class="importnt">Si tu rama principal no es "main" y es "master" o algún otro nombre, se debe modificar para que sea "main".<br/>
+          <a href="#cambioRama">Como cambiar nombre a la rama principal</a></p>
           <dt>git add</dt>
           <dd>
             <dl>
@@ -25,7 +36,7 @@
               <dd>Agrega todos los cambios que se hayan hecho a los archivos de la carpeta en donde se esta pocicionado.</dd>
             </dl>
           </dd>
-          <dl>git rm</dl>
+          <dt>git rm</dt>
           <dd>
             <dl>
               <dt>git rm --cached</dt>
@@ -41,7 +52,7 @@
             <dl>
               <dt>git commit</dt>
               <dd>Envia los ultimos cambios del archivo a la base de datos del sistema de control de versiones para controlar los cambios que se le hayan hecho. *Cada que se agregan (add) archivos se tiene que enviar los cambios a la base de datos (commit). Si no se le agrega mensaje se abre un VIN donde se coloca el mensaje con CTRL+i y se finaliza el VIN con ESC+SHIFT+Z+Z.</dd>
-              <dt>git commit -m "<span>mensage</span>"</dt>
+              <dt>git commit -m "<span>mensaje</span>"</dt>
               <dd>La "-m" indica que se le agregará un mensaje para poder verlo en el futuro como una referencia del cambio.</dd>
               <dt>git commit -am "<span>mensaje</span>"</dt>
               <dd>Hace un add junto con el commit y el mensaje, solo se debe utilizar con archivos que ya hayan sido ejecutados con un "git add" previamente, es decir, no funciona para archivos recien creados.</dd>
@@ -53,7 +64,7 @@
           <dd>
             <dl>
               <dt>git show</dt>
-              <dd>Muestra todos los cambios historicos hechos, cuando y quien hizo los cambios. También muestra a que apunta el HEAD (principalmente solo a 'master')</dd>
+              <dd>Muestra todos los cambios historicos hechos, cuando y quien hizo los cambios. También muestra a que apunta el HEAD (principalmente solo a 'main')</dd>
               <dt>git show <span>__.txt</span></dt>
               <dd>Muestra los cambios de un archivo especifico.</dd>
             </dl>
@@ -87,7 +98,7 @@
             <dl>
               <dt>git diff</dt>
               <dd>Muestra los cambios entre los cambios guardados en la memoria RAM y los guardados en el disco duro.</dd>
-              <dt>git diff <span>_id-commit_ _id-commit_</span></dt>
+              <dt>git diff <span>id-commit1 id-commit2</span></dt>
               <dd>compara dos versiones guardadas de un archivo.</dd>
             </dl>
           </dd>
@@ -96,11 +107,11 @@
             <dl>
               <dt>git reset --soft</dt>
               <dd>Borramos todo el historial y los registros de Git pero guardamos los cambios que tengamos en Staging, así podemos aplicar las últimas actualizaciones a un nuevo commit.</dd>
-              <dt>git reset <span>_id-commit_</span> --soft</dt>
+              <dt>git reset <span>id-commit</span> --soft</dt>
               <dd>Se posiciona en la version especificada y elimina las versiones posteriores a esa del repositorio.</dd>
               <dt>git reset --hard</dt>
               <dd>Borra todo. Todo todito, absolutamente todo. Toda la información de los commits y del área de staging, se borra el historial.</dd>
-              <dt>git reset <span>_id-commit_</span> --hard</dt>
+              <dt>git reset <span>id-commit</span> --hard</dt>
               <dd>Restaura los documentos a la version especificada del repositorio y elimina las versiones posteriores de git y del disco duro.</dd>
               <dt>git reset HEAD</dt>
               <dd>Este es el comando para sacar archivos del área de Staging. No para borrarlos ni nada de eso, solo para que los últimos cambios de estos archivos no se envíen al último commit, a menos que cambiemos de opinión y los incluyamos de nuevo en staging con git add, por supuesto.</dd>
@@ -112,7 +123,7 @@
           <dd>Luego de hacer git add y git commit debemos ejecutar este comando para mandar los cambios al servidor remoto.</dd>
           <dt>git fetch</dt>
           <dd>Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (en caso de que hayan).</dd>
-          <dt>git merge <span>nombreRama</span></dt>
+          <dt>git merge <span>nombre_de_la_rama</span></dt>
           <dd>Usamos este comando con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo. Se debe posicionar en la rama a la que se le quieren fusionar los cambios.</dd>
           <dt>git pull</dt>
           <dd>Basicamente, git fetch y git merge al mismo tiempo.</dd>
@@ -121,25 +132,27 @@
             <dl>
               <dt>git branch o git branch -l</dt>
               <dd>Muestra una lista de todas las ramas que existen.</dd>
-              <dt>git branch <span>_nombreRama_</span></dt>
+              <dt>git branch <span>nombre_de_la_rama</span></dt>
               <dd>Crea una rama del proyecto con el nombre especificado. Esta rama contendrá una copia del último commit.</dd>
-              <dt>git branch -d <span>_nombreRama_</span></dt>
+              <dt>git branch -d <span>nombre_de_la_rama</span></dt>
               <dd>Elimina la rama especificada (con '-d' se fuerza el borrado).</dd>
-              <dt>git branch -m <span>_nombreRamaVieja_ _nombreRamaNueva_</span></dt>
-              <dd>Renombra una rama especificada.</dd>
+              <dt>git branch -m <span>nombreRamaVieja nombreRamaNueva</span></dt>
+              <dd>Renombra una rama colocando el nombre de la rama actual y el nombre por el que se desea cambiarla.</dd>
             </dl>
           </dd>
           <dt>git checkout</dt>
           <dd>
-            (Se deben guardar los cambios correspondientes en el repositorio actual antes de cambiar de version del commit o de rama).
+            <p>
+              (Se deben guardar los cambios correspondientes en el repositorio actual antes de cambiar de version del commit o de rama).
+            </p>
             <dl>
-              <dt>git checkout <span>_id-commit_ _archivo.txt_</span></dt>
+              <dt>git checkout <span>id-commit archivo.txt</span></dt>
               <dd>Nos devuelve el archivo especificado a la version de commit especificada. Si se hace un commit en este estado se borrara todo lo creado despues de esta version.</dd>
-              <dt>git checkout master _archivo.txt_</dt>
+              <dt>git checkout main <span>archivo.txt</span></dt>
               <dd>nos devuelve la ultima version del archivo especificado.</dd>
-              <dt>git checkout <span>_nombreRama_</span></dt>
+              <dt>git checkout <span>nombre_de_la_rama</span></dt>
               <dd>Nos mueve a la rama especificada.</dd>
-              <dt>git checkout -b <span>_nombreRama_</span></dt>
+              <dt>git checkout -b <span>nombre_de_la_rama</span></dt>
               <dd>Crea una nueva rama con el nombre especificado y nos posiciona en ella.</dd>
             </dl>
           </dd>
@@ -150,36 +163,110 @@
               <dd>Muestra el tipo de repositorio que tenemos disponibles.</dd>
               <dt>git remote -v</dt>
               <dd>Muestra el tipo de repositorio disponible, su URL y las acciones que se pueden hacer con él como usar fetch (importar proyectos) o push (exportar proyectos).</dd>
-              <dt>git remote add origin <span>direcciónRepositorio</span></dt>
+              <dt>git remote add origin <span>dirección_del_repositorio</span></dt>
               <dd>Agrega un orígen remoto de nuestros archivos.</dd>
             </dl>
           </dd>
           <dt>git pull</dt>
           <dd>
             <dl>
-              <dt>git pull origin master</dt>
-              <dd>Importa desde "origin" a nuestra rama "master" el repositorio.</dd>
-              <dt>git pull origin master --allow-unrelated-histories</dt>
+              <dt>git pull origin main</dt>
+              <dd>Importa desde "origin" a nuestra rama "main" el repositorio.</dd>
+              <dt>git pull origin main --allow-unrelated-histories</dt>
               <dd>Permite fusionar la rama (o branch) remota con la rama (o branch) local.</dd>
             </dl>
           </dd>
-          <dt>git push origin master</dt>
-          <dd>Exporta o envia a "origin" la rama "master".</dd>
-          <dt>ssh-keygen -t rsa -b 4096 -C "<span>correo@gmail.com</span>"</dt>
-          <dd>Genera una llave de SSH, con  "-t" se especifica el algoritmo que se utilizará para crear la llave que en este caso es rsa, con "-b" se especifica que tan compleja es la llave y "4096" indica la complejidad de la llave desde una perspectiva matemática, con "-C" se indica a que correo electrónico va a estar conectada la llave y el cual debe ser el correo que tenemos en nuestro repositorio de GitHub.<br/>
-          Después de ingresar el código se puede ingresar una contraseña con espacios llamada "passphrase" para mayor seguridad.</dd>
-          Una vez que se tiene la llave se debe agregar al entorno (indicarle al sistema operativo que la llave existe).
+          <dt>git push origin main</dt>
+          <dd>Exporta o envia a "origin" la rama "main".</dd>
+          <dt>cd ~</dt>
+          <dd>La "~" (alt+126) nos dirige al home</dd>
+          <p class="importnt">*Se crea una llave SSH por cada computadora.</p>
+          <dt>ssh-keygen -t rsa -b 4096 -C "<span>correo@mail.com</span>"</dt>
+          <dd>
+            <u>Se colocamos éste código desde home (~).</u><br/>
+            Lo que hace es que genera una llave de SSH para una mayor seguridad en el proyecto.<br/>
+            Con  "-t" se especifica el algoritmo que se utilizará para crear la llave que en este caso es rsa.<br/>
+            Con "-b" se especifica que tan compleja es la llave.<br/>
+            Con "4096" se indica la complejidad de la llave desde una perspectiva matemática.<br/>
+            Con "-C" se indica a que correo electrónico va a estar conectada la llave y el cual debe ser el correo que tenemos en nuestro repositorio de GitHub.<br/>
+            Después de ingresar el código se da enter si es que la dirección de almacenamiento sugerido es deseada o sino se puede escribir una dirección deseada.<br/>
+            Se puede ingresar una contraseña con espacios llamada "passphrase" para mayor seguridad.
+            <figure>
+              <img src="../Imgs/SSH1.jpg" alt="generar llave SSH (ubicación)" title="generar llave SSH (ubicación)">
+              <img src="../Imgs/SSH2.jpg" alt="generar llave SSH (passphrase)" title="generar llave SSH (passphrase)">
+            </figure>
+          </dd>
+          <p class="importnt">*La llave privada nunca se comparte.</p>
+          <p>Una vez que se tiene la llave se debe agregar al entorno (indicarle al sistema operativo que la llave existe).</p>
           <dt>eval $(ssh-agent -s)</dt>
-          <dd>Verifica que el servidor de llaves esta activo: "Agent" indica que el servidor de SSH esta activo, "pid" es el id del proceso y el número al final indica que el proceso esta activo.</dd>
+          <dd>
+            Verifica que el servidor de llaves esta activo: "Agent" indica que el servidor de SSH esta activo, "pid" es el id del proceso y el número al final indica que el proceso esta activo.
+            <figure>
+              <img src="../Imgs/SSH3.jpg" alt="Verificación del servidor activo" title="Verificación del servidor activo">
+            </figure>
+          </dd>
           <dt>ssh-add <span>~/.ssh/id_rsa</span></dt>
-          <dd>La "~" (alt+126) nos dirige al home en donde se encuentra la carpeta ".ssh" en donde se encuentran las llaves publicas y privadas.<br/>
-          El comando agregará la llave al sistema, debe contener la ruta de la llave privada.</dd>
-          Después de haber creando nuestro entorno local, nos conectamos con GitHub, remplazar la conexión HTTPS por una conexión SSH para hacer git pull y git push son usar contraseñas y no dejar de obtener una conexión segura.
+          <dd>
+            En home por default se encuentra la carpeta ".ssh" (como empieza por punto se supone que es una carpeta oculta), en donde se encuentran las llaves publicas y privadas.<br/>
+            El comando agregará la llave al sistema, debe contener la ruta de la llave <u>privada</u>.
+            <figure>
+              <img src="../Imgs/SSH4.jpg" alt="agregar llave al sistema" title="agregar llave al sistema">
+            </figure>
+          </dd>
+          <p>
+            Después de haber creando nuestro entorno local, nos conectamos con GitHub, remplazar la conexión HTTPS por una conexión SSH para hacer git pull y git push son usar contraseñas y no dejar de obtener una conexión segura.
+          </p>
           <dt></dt>
           <dd></dd>
-          <dt>q</dt>
-          <dd>salirte de un estado.</dd>
         </dl>
+      </div>
+    </section>
+    <section>
+      <div>
+        <h2>Subir un proyecto a GitHub.</h2>
+        <p>Se crea un repositorio en GitHub:</p>
+        <figure>
+          <img src="../Imgs/repository_paso1.jpg" alt="paso 1 para vincular un repositorio con Git y GitHub" title="paso 1 para vincular un repositorio">
+          <figcaption>Se selecciona en el menu, la opción "crear repositorio".</figcaption>
+        </figure>
+        <figure>
+          <img src="../Imgs/repository_paso2.jpg" alt="paso 2 para vincular un repositorio con Git y GitHub" title="paso 2 para vincular un repositorio">
+          <figcaption>Se le asigna nombre, descripción, publico o provado, agregar un README (introducción al proyecto" y si se desea un gitignore o/y una licencia.</figcaption>
+        </figure>
+        <figure>
+          <img src="../Imgs/repository_paso3.jpg" alt="paso 3 para vincular un repositorio con Git y GitHub" title="paso 3 para vincular un repositorio">
+          <figcaption>Se despliega la opción CLONE en donde se puede copiar la URL del repositorio para poder clonarlo.</figcaption>
+        </figure>
+        <p>Posicionado en la carpeta del computador en donde se tiene el proyecto que se subirá al repositorio creado se usa el comando <b>git remote add origin <u>URL copiado</u></b> para crear un "origin" con el que se descarga el repositorio y se suben cambios o aportes desde nuestro computador. Con <b>git remote -v</b> se puede comprobar que se hizo todo correctamente, aparecerá un texto que indica el origin, la URL y entre parentesis "fetch" y "push".</p>
+        <img src="../Imgs/repository_paso4.jpg" alt="paso 4 para vincular un repositorio con Git y GitHub" title="paso 4 para vicular un repositorio">
+        <p id="cambioRama">Si la rama principal se llama "master" se le cambia el nombre a la rama principal ya que desde 2020 se dejó de utilizar "master" para convertirse en "main" con el comando <b>git checkout <u>master</u></b> para dirigirse a la rama master, después se escribe el comando <b>git branch -m <u>main</u></b></p>
+        <img src="../Imgs/repository_paso5.jpg" alt="paso 5 para vincular un repositorio con Git y GitHub" title="paso 5 para vicular un repositorio">
+        <p>Se indica que las ramas principales sean main para futuros proyectos con el comando <b>git config --global init.defaultBranch <u>main</u></b></p>
+        <img src="../Imgs/repository_paso6.jpg" alt="paso 6 para vincular un repositorio con Git y GitHub" title="paso 6 para vicular un repositorio">
+        <p>Se envia al origen, la rama main con el comando <b>git push origin <u>main</u></b>. Si se queda pasmada la terminal de git permitiendo solo ingresar texto, entonces se presiona <i>CONTROL + c</i> para detener el proceso, después se abre otra terminal como en CMD o preferentemente una terminal de "visual studio code" y se vuelve a escribir este comando.</p>
+        <img src="../Imgs/repository_paso7.jpg" alt="paso 7 para vincular un repositorio con Git y GitHub" title="paso 7 para vicular un repositorio">
+        <p>Se integran los cambios remotos antes de hacer un push, para esto se importa el repositorio desde el origen, la rama main con el comando <b>git pull origin <u>main</u></b></p>
+        <img src="../Imgs/repository_paso8.jpg" alt="paso 8 para vincular un repositorio con Git y GitHub" title="paso 8 para vicular un repositorio">
+        <p>Se fucionan las historias no relacionadas, es decir, la rama local y la rama de GitHub con el comando <b>git pull origin main --allow-unrelated-histories</b>, esto generalmente solo se usa con el primer pull a un repositorio.</p>
+        <img src="../Imgs/repository_paso9.jpg" alt="paso 9 para vincular un repositorio con Git y GitHub" title="paso 9 para vicular un repositorio">
+        <p>Se sube el proyecto con todos sus commits con el comando <b>git push origin <u>main</u></b></p>
+        <img src="../Imgs/repository_paso10.jpg" alt="paso 10 para vincular un repositorio con Git y GitHub" title="paso 10 para vicular un repositorio">
+        <p>Se recarga la página de GitHub y se podrá visualizar los archivos y su información como sus comits o fecha de ultima modificación.</p>
+        <img src="../Imgs/repository_paso11.jpg" alt="paso 11 para vincular un repositorio con Git y GitHub" title="paso 11 para vicular un repositorio">
+      </div>
+    </section>
+    <section>
+      <div>
+        <h2>Cambiar la conexión HTTP por SSH.</h2>
+        <p>Después de crear la llave SSH con los comandos indicados se procede a lo siguiente:</p>
+        <figure>
+          <img src="../Imgs/SSH5.jpg" alt="paso 1 para conectar GitHub con SSH" title="paso 1 para conectar GitHub con SSH">
+          <img src="../Imgs/SSH6.jpg" alt="paso 2 para conectar GitHub con SSH" title="paso 2 para conectar GitHub con SSH">
+          <img src="../Imgs/SSH7.jpg" alt="paso 3 para conectar GitHub con SSH" title="paso 3 para conectar GitHub con SSH">
+          <img src="../Imgs/SSH8.jpg" alt="paso 4 para conectar GitHub con SSH" title="paso 4 para conectar GitHub con SSH">
+          <img src="../Imgs/SSH9.jpg" alt="paso 5 para conectar GitHub con SSH" title="paso 5 para conectar GitHub con SSH">
+          <img src="../Imgs/SSH10.jpg" alt="paso 6 para conectar GitHub con SSH" title="paso 6 para conectar GitHub con SSH">
+        </figure>
       </div>
     </section>
     <section>
@@ -191,5 +278,6 @@
       </div>
     </section>
   </main>
+  <script src="../Programacion/jsGit1.js"></script>
 </body>
 </html>

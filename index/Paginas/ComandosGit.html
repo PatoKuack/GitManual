@@ -21,6 +21,10 @@
       </figure>
       <div>
         <dl>
+          <dt>alias <span>nombrarAlias</span>="<span>instrucción</span>"</dt>
+          <dd>Permite llamar una instrucción escribiendo solo un alias (ejemplo: alias arbolito="git log --all ...").</dd>
+          <dt>git config --global alias.superlog "<span>nombre_del_alias</span>"</dt>
+          <dd>Guarda el alias para evitar que se borre al reiniciar la computadora.</dd>
           <dt>git init</dt>
           <dd>Arranca un repositorio.</dd>
           <dt>q</dt>
@@ -76,6 +80,12 @@
               <dd>Muestra el historial completo del archivo.</dd>
               <dt>git log --stat</dt>
               <dd>Muestra los cambios especificos realizados en los archivos apartir del commit.</dd>
+              <dt>git log --all</dt>
+              <dd>Muestra todo lo hecho historicamente.</dd>
+              <dt>git log --all --graph</dt>
+              <dd>Muestra por medio de unas lineas en el margen lateral como han funcionado las ramas.</dd>
+              <dt>git log --all --graph --decorate --oneline</dt>
+              <dd>Muestra toda la historia del proyecto desde que se inicializa</dd>
             </dl>
           </dd>
           <dt>git config</dt>
@@ -121,6 +131,7 @@
           <dd>Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git.</dd>
           <dt>git push</dt>
           <dd>Luego de hacer git add y git commit debemos ejecutar este comando para mandar los cambios al servidor remoto.</dd>
+          <p class="importnt">*Los archivos binarios no se deben agregar al repositorio debido a que lo hacen más pesado.</p>
           <dt>git fetch</dt>
           <dd>Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (en caso de que hayan).</dd>
           <dt>git merge <span>nombre_de_la_rama</span></dt>
@@ -130,6 +141,8 @@
           <dt>git branch</dt>
           <dd>
             <dl>
+              <dt>git branch</dt>
+              <dd>Muestra todas las ramas existentes en el proyecto de git.</dd>
               <dt>git branch o git branch -l</dt>
               <dd>Muestra una lista de todas las ramas que existen.</dd>
               <dt>git branch <span>nombre_de_la_rama</span></dt>
@@ -138,6 +151,12 @@
               <dd>Elimina la rama especificada (con '-d' se fuerza el borrado).</dd>
               <dt>git branch -m <span>nombreRamaVieja nombreRamaNueva</span></dt>
               <dd>Renombra una rama colocando el nombre de la rama actual y el nombre por el que se desea cambiarla.</dd>
+              <dt>git show-branch</dt>
+              <dd>Muestra las ramas que existen y cuál ha sido su historia dentro del proyecto.</dd>
+              <dt>git show-branch --all</dt>
+              <dd>Muestra un poco de más información.</dd>
+              <dt>gitk</dt>
+              <dd>Muestra de una forma visual toda la historia del proyecto.</dd>
             </dl>
           </dd>
           <dt>git checkout</dt>
@@ -191,31 +210,71 @@
             Con "-C" se indica a que correo electrónico va a estar conectada la llave y el cual debe ser el correo que tenemos en nuestro repositorio de GitHub.<br/>
             Después de ingresar el código se da enter si es que la dirección de almacenamiento sugerido es deseada o sino se puede escribir una dirección deseada.<br/>
             Se puede ingresar una contraseña con espacios llamada "passphrase" para mayor seguridad.
-            <figure>
-              <img src="../Imgs/SSH1.jpg" alt="generar llave SSH (ubicación)" title="generar llave SSH (ubicación)">
-              <img src="../Imgs/SSH2.jpg" alt="generar llave SSH (passphrase)" title="generar llave SSH (passphrase)">
-            </figure>
           </dd>
+          <figure>
+            <img src="../Imgs/SSH1.jpg" alt="generar llave SSH (ubicación)" title="generar llave SSH (ubicación)">
+            <img src="../Imgs/SSH2.jpg" alt="generar llave SSH (passphrase)" title="generar llave SSH (passphrase)">
+          </figure>
           <p class="importnt">*La llave privada nunca se comparte.</p>
           <p>Una vez que se tiene la llave se debe agregar al entorno (indicarle al sistema operativo que la llave existe).</p>
           <dt>eval $(ssh-agent -s)</dt>
           <dd>
             Verifica que el servidor de llaves esta activo: "Agent" indica que el servidor de SSH esta activo, "pid" es el id del proceso y el número al final indica que el proceso esta activo.
-            <figure>
-              <img src="../Imgs/SSH3.jpg" alt="Verificación del servidor activo" title="Verificación del servidor activo">
-            </figure>
           </dd>
+          <figure>
+            <img src="../Imgs/SSH3.jpg" alt="Verificación del servidor activo" title="Verificación del servidor activo">
+          </figure>
           <dt>ssh-add <span>~/.ssh/id_rsa</span></dt>
           <dd>
             En home por default se encuentra la carpeta ".ssh" (como empieza por punto se supone que es una carpeta oculta), en donde se encuentran las llaves publicas y privadas.<br/>
             El comando agregará la llave al sistema, debe contener la ruta de la llave <u>privada</u>.
-            <figure>
-              <img src="../Imgs/SSH4.jpg" alt="agregar llave al sistema" title="agregar llave al sistema">
-            </figure>
           </dd>
+          <figure>
+            <img src="../Imgs/SSH4.jpg" alt="agregar llave al sistema" title="agregar llave al sistema">
+          </figure>
           <p>
-            Después de haber creando nuestro entorno local, nos conectamos con GitHub, remplazar la conexión HTTPS por una conexión SSH para hacer git pull y git push son usar contraseñas y no dejar de obtener una conexión segura.
+            Después de haber creando nuestro entorno local, nos conectamos con GitHub y se remplaza la conexión HTTPS por una conexión SSH para hacer git pull y git push sin usar contraseñas y seguir manteniendo una conexión segura.
           </p>
+          <p>Los tags o etiquetas nos permiten asignar versiones a los commits con cambios más importantes o significativos de nuestro proyecto. Son útiles en el sitio web de GitHub porque es la forma en que otros usuarios pueden visualizar que verciones ocurrieron y rara vez son útiles dentro del proyecto ya que solo se usrían para dejar un registro interno.</p>
+          <figure>
+            <img src="../Imgs/tag1.jpg" alt="ejemplo de la obtención de hash" title="ejemplo de la obtención de hash">
+            <figcaption>Primero se escoje y se copia uno de los <b>hash</b>s que se desea usar para crear el tag.</figcaption>
+          </figure>
+          <dt>git tag</dt>
+          <dd>
+            <dl>
+              <dt>git tag</dt>
+              <dd>Muestra los tags que existen en el proyecto.</dd>
+              <dt>git tag -a <span>nombre_del_tag</span> -m "<span>mensaje descriptivo del tag</span>" <span>hash</span></dt>
+              <dd>
+                "-a" indica que se agregará un tag.<br/>
+                Generalmente se le coloca un nombre como v0.1 (versión 0.1 del proyecto).
+              </dd>
+              <dt>git show-ref --tag</dt>
+              <dd>Muestra a que hash o a que commit esta conectado un tag.</dd>
+              <p>Como los tags no son archivos no se envian con un simple push.</p>
+              <dt>git pull origin main</dt>
+              <dd>Como buena practica, antes de subir a la web un tag, se obtiene el repositorio de GitHub.</dd>
+              <dt>git push origin --tags</dt>
+              <dd>Le envia a origin los tags creados.</dd>
+              <dt>git tag -d <span>nombre_del_tag</span></dt>
+              <dd>Elimina un tag del proyecto en git (no de GitHub).</dd>
+              <dt>git push origin :refs/tags/<span>nombre_del_tag</span></dt>
+              <dd>Elimina el tag de GitHub que esta conectado con el tag eliminado dentro del proyecto en git (puede que previamente se tenga que usar pull y push para subir la referencia del tag eliminado en el proyecto de git).</dd>
+            </dl>
+          </dd>
+          <figure>
+            <img src="../Imgs/tag2.jpg" alt="ejemplo de tag mandado a GitHub" title="ejemplo de tag mandado a GitHub">
+            <img src="../Imgs/tag3.jpg" alt="ejemplo de tag en GitHub" title="ejemplo de tag en GitHub">
+          </figure>
+          <dt></dt>
+          <dd></dd>
+          <dt></dt>
+          <dd></dd>
+          <dt></dt>
+          <dd></dd>
+          <dt></dt>
+          <dd></dd>
           <dt></dt>
           <dd></dd>
         </dl>
@@ -267,6 +326,28 @@
           <img src="../Imgs/SSH9.jpg" alt="paso 5 para conectar GitHub con SSH" title="paso 5 para conectar GitHub con SSH">
           <img src="../Imgs/SSH10.jpg" alt="paso 6 para conectar GitHub con SSH" title="paso 6 para conectar GitHub con SSH">
         </figure>
+      </div>
+    </section>
+    <section>
+      <div>
+        <h2>Uso de ramas.</h2>
+        <dl>
+          <dt>git checkout main</dt>
+          <dd>Se deben crear las ramas desde la versión más resiente qu debería ser la rama main.</dd>
+          <dt>git branch <span>rama's_name</span></dt>
+          <dd>Se crea la rama.</dd>
+          <dt>git branch</dt>
+          <dd>Se verifica que se hayan creado las ramas.</dd>
+          <dt>git push origin <span>rama's_name</span></dt>
+          <p>Cuando se trabaja con un compañero en el proyecto, el creador del proyecto en GitHub le tiene que dar acceso al proyecto para que el compañero pueda subir sus aportaciones de código o para clonar el proyecto en caso de que sea privado.</p>
+          <figure>
+            <img src="../Imgs/rama1.jpg" alt="Paso 1 para dar acceso a un compañero al proyecto (settings)" title="Paso 1 para dar acceso a un compañero al proyecto (settings)">
+            <img src="../Imgs/rama2.jpg" alt="Paso 2 para dar acceso a un compañero al proyecto (manage access)" title="Paso 2 para dar acceso a un compañero al proyecto (manage access)">
+          </figure>
+          <p>Al darle acceso a un usuario para que modifique o aporte en nuestro proyecto, nos brindarán un link para compartirlo con el usuario colaborador e invitarlo al proyecto, una vez que acepte la invitación podrá iniciar a hacer aportaciones a nuestro proyecto.</p>
+          <dt></dt>
+          <dd></dd>
+        </dl>
       </div>
     </section>
     <section>

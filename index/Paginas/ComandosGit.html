@@ -133,9 +133,9 @@
           <dd>Luego de hacer git add y git commit debemos ejecutar este comando para mandar los cambios al servidor remoto.</dd>
           <p class="importnt">*Los archivos binarios no se deben agregar al repositorio debido a que lo hacen más pesado.</p>
           <dt>git fetch</dt>
-          <dd>Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (en caso de que hayan).</dd>
+          <dd>Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (se ejecuta antes del git push).</dd>
           <dt>git merge <span>nombre_de_la_rama</span></dt>
-          <dd>Usamos este comando con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo. Se debe posicionar en la rama a la que se le quieren fusionar los cambios.</dd>
+          <dd>Usamos este comando con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo. Se debe posicionar en la rama a la que se le quieren fusionar los cambios (generalmente se posiciona en la rama principal, o sea main) y en el comando se coloca el nombre de la rama que se le quiere combinar.</dd>
           <dt>git pull</dt>
           <dd>Basicamente, git fetch y git merge al mismo tiempo.</dd>
           <dt>git branch</dt>
@@ -267,6 +267,9 @@
             <img src="../Imgs/tag2.jpg" alt="ejemplo de tag mandado a GitHub" title="ejemplo de tag mandado a GitHub">
             <img src="../Imgs/tag3.jpg" alt="ejemplo de tag en GitHub" title="ejemplo de tag en GitHub">
           </figure>
+          <p>
+            En un entorno profesional normalmente se bloquea la rama main, y para enviar código a dicha rama pasa por un "code review", ya que se realizan pruebas enviamos el código a servidores que normalmente los llamamos "staging develop" (servidores de pruebas) luego de que se realizan las pruebas pertinentes tanto de código como de la aplicación, estos pasan a el servidor de producción con un "<b>pull request</b>" (también llamado "merge request" o "push request") que une los códigos.
+          </p>
           <dt></dt>
           <dd></dd>
           <dt></dt>
@@ -280,6 +283,7 @@
         </dl>
       </div>
     </section>
+    <!-- Subir proyecto a GitHub -->
     <section>
       <div>
         <h2>Subir un proyecto a GitHub.</h2>
@@ -314,6 +318,7 @@
         <img src="../Imgs/repository_paso11.jpg" alt="paso 11 para vincular un repositorio con Git y GitHub" title="paso 11 para vicular un repositorio">
       </div>
     </section>
+    <!-- Cambiar HTTP por SSH -->
     <section>
       <div>
         <h2>Cambiar la conexión HTTP por SSH.</h2>
@@ -328,6 +333,7 @@
         </figure>
       </div>
     </section>
+    <!-- Uso de ramas -->
     <section>
       <div>
         <h2>Uso de ramas.</h2>
@@ -345,8 +351,25 @@
             <img src="../Imgs/rama2.jpg" alt="Paso 2 para dar acceso a un compañero al proyecto (manage access)" title="Paso 2 para dar acceso a un compañero al proyecto (manage access)">
           </figure>
           <p>Al darle acceso a un usuario para que modifique o aporte en nuestro proyecto, nos brindarán un link para compartirlo con el usuario colaborador e invitarlo al proyecto, una vez que acepte la invitación podrá iniciar a hacer aportaciones a nuestro proyecto.</p>
-          <dt></dt>
-          <dd></dd>
+          <dt>git pull origin <span>nombre_de_la_rama</span></dt>
+          <dd>Importamos la rama creada a nuestro repositorio del proyecto local.</dd>
+          <dt>git checkout <span>nombre_de_la_rama</span></dt>
+          <dd>Nos colocamos en la rama creada para trabajar en ella.</dd>
+          <dt>git commit -am "<span>mensaje_introductorio_del_commit</span>"</dt>
+          <dd>Una vez modificada la rama se agregan y guardan los cambios.</dd>
+          <dt>git pull origin <span>nombre_de_la_rama</span></dt>
+          <dd>Se importa el repositorio por si hay cambios de otros usuarios.</dd>
+          <dt>git push origin <span>nombre_de_la_rama</span></dt>
+          <dd>Se suben los cambios hechos a la rama.</dd>
+          <p>Generalmente es el lider del proyecto, product manager o el CTO el que se encarga de unir las ramas cuando ya el trabajo esta completado por lo que debe hacer pull con la rama que desea unir, después verifica que el código este correcto y...</p>
+          <dt>git checkout <span>main</span></dt>
+          <dd>Se dirige a la rama principal que es a la que se le adicionarán las aportaciones de las otras ramas.</dd>
+          <dt>git merge <span>nombre_de_la_rama_secundaria</span></dt>
+          <dd>Se le agregan las aportaciones de alguna rama secundaria a la rama principal.</dd>
+          <dt>git pull origin <span>main</span></dt>
+          <dd>Verifica que no hayan cambios externos que eviten hacer el push.</dd>
+          <dt>git push origin <span>main</span></dt>
+          <dd>Se sube a GitHub los cambios en el repositorio.</dd>
         </dl>
       </div>
     </section>

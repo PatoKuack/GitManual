@@ -1,0 +1,17 @@
+.cuerpo{
+  display: grid;
+  /* grid-auto-flow: row dense; */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: .3em;
+}
+.cuerpo>*{
+  background-color: blueviolet;
+  color: aliceblue;
+}
+/* .cabecera{
+  grid-area: 1/2/1/4;
+}
+.publicidad-izq{
+  grid-area: 2/3/1/2;
+} */

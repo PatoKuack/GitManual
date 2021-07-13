@@ -1,0 +1,105 @@
+:root{
+  --colorA: rgb(235, 227, 203);
+  --colorB: rgb(16, 143, 126);
+  --colorC: rgb(145, 42, 42);
+  --colorD: rgb(6, 109, 95);
+  --colorE: rgb(247, 108, 108);
+  --colorF: rgb(242, 252, 99);
+  --colorG: rgb(231, 235, 192);
+  --colorH: rgb(137, 250, 250);
+
+  --fontG: 1.3em;
+}
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.cuerpo{
+  display: grid;
+  grid-auto-flow: row dense;
+  color: var(--colorA);
+  grid-template-columns: min-content auto min-content;
+  grid-template-rows: min-content 1fr min-content;
+  grid-gap: .5em;
+  background-color: var(--colorA);
+  min-height: 100vh;
+}
+
+.cabecera{
+  background-color: var(--colorB);
+  padding: 1rem;
+  text-align: center;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  box-shadow: 0 0 .5rem 0 var(--colorF);
+}
+.titprincipal{
+  font-size: var(--fontG);
+}
+
+.navegador{
+  background-image: linear-gradient(var(--colorB) 80%, var(--colorC) 120%);
+  grid-row-start: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  padding: 2em 2em 3em 3em;
+  box-shadow: 0 0 .5rem 0 var(--colorF);
+}
+
+.izq-publi, .der-publi{
+  background-color: var(--colorC);
+  background-image: linear-gradient(230deg, var(--colorC) 55%, var(--colorE) 63%, var(--colorC) 71%);
+  padding: 3em 1em 1em 1em;
+  box-shadow: 0 0 .5rem 0 var(--colorC);
+  flex-grow: 1;
+  text-align: center;
+}
+.izq-publi{
+  grid-row-start:     2;
+  grid-column-start:  1;
+}
+.der-publi{
+  grid-row-start:     2;
+  grid-column-start:  3;
+}
+
+.pieDePag{
+  background-color: var(--colorC);
+  box-shadow: 0 .5rem 1rem 0 var(--colorA) inset;
+  padding: 1rem;
+  grid-row-start: 3;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+ol{
+  padding-top: .5em;
+}
+
+li{
+  padding: .2em 0;
+}
+
+li > a:hover{
+  background-color: var(--colorD);
+  box-shadow: 0 0 .3em .3em var(--colorD);
+}
+
+.subnavs{
+  padding-left: 1em;
+}
+
+.pieDePag > a{
+  display: block;
+  width: 70vw;
+}
+
+a{
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}

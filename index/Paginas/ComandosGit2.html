@@ -182,7 +182,7 @@
               <dd>Muestra el tipo de repositorio que tenemos disponibles.</dd>
               <dt>git remote -v</dt>
               <dd>Muestra el tipo de repositorio disponible, su URL y las acciones que se pueden hacer con él como usar fetch (importar proyectos) o push (exportar proyectos).</dd>
-              <dt>git remote add origin <span>dirección_del_repositorio</span></dt>
+              <dt>git remote add origin <span>URL_(HTTPS_o_SSH)</span></dt>
               <dd>Agrega un orígen remoto de nuestros archivos.</dd>
             </dl>
           </dd>
@@ -190,21 +190,23 @@
           <dd>
             <dl>
               <dt>git pull origin main</dt>
-              <dd>Importa desde "origin" a nuestra rama "main" el repositorio.</dd>
+              <dd>Importa a nuestro "origin" los cambios de la rama "main" (repositorio en GitHub).</dd>
               <dt>git pull origin main --allow-unrelated-histories</dt>
-              <dd>Permite fusionar la rama (o branch) remota con la rama (o branch) local.</dd>
+              <dd>Permite fusionar la rama (o branch) remota con la rama (o branch) local (generalmente se usa este comando la primera vez que se hace pull).</dd>
+              <dt>git pull <span>rama_local</span> main</dt>
+              <dd>Importa a una rama local el contenido que hay en la rama "main".</dd>
             </dl>
           </dd>
           <dt>git push origin main</dt>
-          <dd>Exporta o envia a "origin" la rama "main".</dd>
+          <dd>Exporta o envía nuestro "origin" la rama "main" de GitHub.</dd>
           <dt>cd ~</dt>
           <dd>La "~" (alt+126) nos dirige al home</dd>
           <p class="importnt">*Se crea una llave SSH por cada computadora.</p>
           <dt>ssh-keygen -t rsa -b 4096 -C "<span>correo@mail.com</span>"</dt>
           <dd>
-            <u>Se colocamos éste código desde home (~).</u><br/>
+            <u>Se coloca éste código desde home (~).</u><br/>
             Lo que hace es que genera una llave de SSH para una mayor seguridad en el proyecto.<br/>
-            Con  "-t" se especifica el algoritmo que se utilizará para crear la llave que en este caso es rsa.<br/>
+            Con "-t" se especifica el algoritmo que se utilizará para crear la llave que en este caso es rsa.<br/>
             Con "-b" se especifica que tan compleja es la llave.<br/>
             Con "4096" se indica la complejidad de la llave desde una perspectiva matemática.<br/>
             Con "-C" se indica a que correo electrónico va a estar conectada la llave y el cual debe ser el correo que tenemos en nuestro repositorio de GitHub.<br/>
@@ -375,6 +377,7 @@
       <div>
         <h2>Pull request</h2>
         <p>
+<<<<<<< HEAD
           En un entorno profesional normalmente se bloquea la rama main, y para enviar código a dicha rama pasa por un "code review", ya que se realizan pruebas enviamos el código a servidores que normalmente los llamamos "staging develop" (servidores de pruebas) luego de que se realizan las pruebas pertinentes tanto de código como de la aplicación, estos pasan a el servidor de producción con un "<b>pull request</b>" (también llamado "merge request" o "push request") que une los códigos. Todo esto generalmente lo hace el líder de proyecto o el DevOps (administrador del entorno de desarrollo).
         </p>
         <figure>
@@ -384,6 +387,17 @@
         <figure>
           <img src="../Imgs/pullRequest2.jpg" alt="Ejemplo de creación de un 'pull request' con ayuda de GitHub" title="Ejemplo de creación de un 'pull request' con ayuda de GitHub">
           <img src="../Imgs/pullRequest3.jpg" alt="Ejemplo de creación de un 'pull request' con ayuda de GitHub" title="Ejemplo de creación de un 'pull request' con ayuda de GitHub">
+=======
+          En un entorno profesional normalmente se bloquea la rama main, y para enviar código a dicha rama pasa por un "code review", ya que se realizan pruebas se envía el código a servidores que normalmente los llamamos "staging develop" (servidores de pruebas) luego de que se realizan las pruebas pertinentes tanto de código como de la aplicación, estos pasan a el servidor de producción con un "<b>pull request</b>" (también llamado "merge request" o "push request") que une los códigos. Todo esto generalmente lo hace el líder de proyecto o el DevOps (administrador del entorno de desarrollo).
+        </p>
+        <figure>
+          <img src="../Imgs/pullRequest1.jpg" alt="Ejemplo de creación de un 'pull request' a mano" title="Creación de un 'pull request' a mano">
+          <figcaption>Pull request a mano.</figcaption>
+        </figure>
+        <figure>
+          <img src="../Imgs/pullRequest2.jpg" alt="Ejemplo de creación de un 'pull request' con ayuda de GitHub" title="Creación de un 'pull request' con ayuda de GitHub">
+          <img src="../Imgs/pullRequest3.jpg" alt="Ejemplo de creación de un 'pull request' con ayuda de GitHub" title="Creación de un 'pull request' con ayuda de GitHub">
+>>>>>>> menu
           <figcaption>Pull request directo.</figcaption>
         </figure>
         <p>
@@ -401,13 +415,152 @@
           El <i>pull request</i> describe las acciones del código y el usuario correspondiente se encarga de revisar el código y pedir cambios o ejecutar el merge.
         </p>
         <figure>
+<<<<<<< HEAD
           <img src="../Imgs/pullRequest4.jpg" alt="Ejemplo de vista del asignado de revisión o cesionario" title="Ejemplo de vista del asignado de revisión o cesionario">
           <img src="../Imgs/pullRequest5.jpg" alt="Ejemplo de vista del asignado de revisión o cesionario" title="Ejemplo de vista del asignado de revisión o cesionario">
+=======
+          <img src="../Imgs/pullRequest4.jpg" alt="Ejemplo de vista del asignado de revisión (reviewer) o cesionario (assignee)" title="Vista del asignado de revisión (reviewer) o cesionario (assignee)">
+          <img src="../Imgs/pullRequest5.jpg" alt="Ejemplo de vista del asignado de revisión (reviewer) o cesionario (assignee)" title="Vista del asignado de revisión (reviewer) o cesionario (assignee)">
+>>>>>>> menu
           <figcaption>Vista del reviewer o assignee del <i>pull request</i></figcaption>
         </figure>
         <p>
           Desde la pestaña "<i>Files changed</i>" se pueden agregar comentarios, aprobar el <i>merge</i> o pedir cambios al proyecto.
         </p>
+<<<<<<< HEAD
+=======
+        <figure>
+          <img src="../Imgs/pullRequest6.jpg" alt="Ejemplo de vista del líder de proyecto respondiendo la solicitud del reviewer" title="Vista del líder de proyecto: respondiendo la solicitud del reviewer">
+          <figcaption>Vista del líder del proyecto ya listo para pedír de nuevo una revisión para autorizar un merge.</figcaption>
+        </figure>
+        <figure>
+          <img src="../Imgs/pullRequest7.jpg" alt="Ejemplo de vista del reviewer revisando los cambios" title="Vista del reviewer: revisando los cambios">
+          <figcaption>Vista del reviewer revisando los cambios. Se visualiza la última aportación o commit.</figcaption>
+        </figure>
+        <figure>
+          <img src="../Imgs/pullRequest8.jpg" alt="Ejemplo de vista del reviewer aprobando los cambios" title="Vista del reviewer: aprobando los cambios">
+          <figcaption>Vista del reviewer aprobando los cambios.</figcaption>
+        </figure>
+        <figure>
+          <img src="../Imgs/pullRequest9.jpg" alt="Ejemplo de vista del líder de proyectos comenzando el merge de las ramas completas" title="Vista del líder de proyectos: comenzando el merge de las ramas completas">
+          <img src="../Imgs/pullRequest10.jpg" alt="Ejemplo de vista del líder de proyectos realizando el merge" title="Vista del líder de proyectos: realizando el merge">
+          <figcaption>Vista del líder de proyectos realizando el merge de las ramas completas.</figcaption>
+        </figure>
+        <figure>
+          <img src="../Imgs/pullRequest11.jpg" alt="Ejemplo de vista del líder de proyectos eliminando Branch (rama)" title="Vista del líder de proyectos: eliminando Branch (rama)">
+          <figcaption>Vista del líder del proyecto. Una vez que el merge se realizó se puede eliminar la rama si es que ya no se utilizará, aunque esta opción no eliminará la rama en el entorno de trabajo en Git.</figcaption>
+        </figure>
+      </div>
+    </section>
+    <!-- Colaboración y Fork -->
+    <section>
+      <div>
+        <h2>Colaboración.</h2>
+        <p>Un colaborador es un usuario que sugiere aportaciones al proyecto sin ser parte del equipo de trabajo del proyecto.</p>
+        <p>
+          Para ser un colaborador de algún proyecto se necesita:
+          <dl>
+            <dt>Activar Watch</dt>
+            <dd>Con esta función podremos recibir notificaciones en el momento en que haya conversaciones del proyecto.</dd>
+            <dt>Star</dt>
+            <dd>Indica que un proyecto nos gusta y nos permite recibir notificaciones si hay cambios en el proyecto.</dd>
+            <dt>Fork</dt>
+            <dd>Toma una copia del estado actual del proyecto y lo clona como un proyecto propio si es que el proyecto es público.</dd>
+          </dl>
+        </p>
+        <figure>
+          <img src="../Imgs/colab1.jpg" alt="Ejemplo de las funciones en GitHub para iniciar a colaborar" title="Funciones Watch, Star y Fork">
+        </figure>
+        <p>Se clona el proyecto al disco duro con la opción <i>code</i>, y depende si se implementaron la llave SSH o solo la HTTPS en tu computadora se selecciona la opción respectiva.</p>
+        <figure>
+          <img src="../Imgs/colab2.jpg" alt="Ejemplo de las funciones en GitHub para iniciar a colaborar" title="Funciones Watch, Star y Fork">
+        </figure>
+        <p>En la terminal de la computadora personal se posiciona en el directorio en el que se desea almacenar el proyecto que se clonó en GitHub con el comando <b>cd</b> y seguido a eso se usa el comando "<b>git clone <span> URL_copiada</span></b>" para copiar el proyecto al disco duro en el directorio especificado.</p>
+        <p>Si se hacen cambios y contribuciones al proyecto clonado se puede crear un <b>pull request</b> y nos conecta directamente con el proyecto original. Se puede pedir que se agreguen las contribuciones si es que no hay conflictos con el repositorio original, después se puede esperar, agregar comentarios al <i>pull request</i> o cerrar (eliminar) el <i>pull request</i>.</p>
+        <p>Si el dueño o líder del proyecto acepta el <i>pull request</i> le hará un merge.</p>
+        <h3>Fork</h3>
+        <p>Para mantener actualizado el proyecto se crea una rama especial</p>
+        <dl>
+          <dt>git remote add <span>upstream URL_(HTTPS_o_SSH)</span></dt>
+          <dd>Con este comando se crea una nueva rama, generalmente se usa el nombre "upstream" en la rama que se utiliza como un remoto para importar datos de un proyecto que es ajeno y así poder fusionarlo a la rama principal de nuestro proyecto importado.</dd>
+          <dd>El URL que se utiliza es el del proyecto ajeno que queremos clonar contantemente para mantener actualizados sus cambios.</dd>
+          <dt>git pull <span>upstream</span> main</dt>
+          <dd>Importa a "upstream" el contenido que hay en la rama "main".</dd>
+          <dt>git commit -am "<span>mensaje</span>"</dt>
+          <dd>Hace un commit a upstream.</dd>
+          <dt>git push origin main</dt>
+          <dd>Hace un push con los cambios.</dd>
+        </dl>
+        <p>La rama "upstream" es un apuntador que apunta hacia el repositorio de GitHub original, cada que el proyecto original hace cambios, éste se actualizará con el pull y luego enviará los cambios a nuestro main local.</p>
+      </div>
+    </section>
+    <!-- GitIgnore -->
+    <section>
+      <div>
+        <h2>GitIgnore</h2>
+        <p>Se crea un archivo nuevo y se guarda en la <b>raíz</b> de la rama del proyecto con el nombre de <b>.gitignore</b></p>
+        <img src="../Imgs/ignore1.jpg" alt="Ejemplo del archivo guardado como .gitignore" title="Ejemplo del archivo guardado.">
+        <p>En este documento se colocarán los tipos de archivo que se gnorarán al hacer push. Como es mala practica agregar archivos binarios a un repositorio, se agregarán las instrucciones correspondientes para que se ignoren los archivos que sean imagenes o videos.</p>
+        <img src="../Imgs/ignore2.jpg" alt="Ejemplo de instrucciones en el archivo .gitignore" title="Ejemplo de instrucciones.">
+        <p>La sintaxis de este archivo incluye:</p>
+        <dl>
+          <dt>#Texto</dt>
+          <dd>Con los "#" se colocan comentarios.</dd>
+          <dt>/content/tmp/*</dt>
+          <dd>Ignorará todo el contenido de la carpeta "tmp" que esta dentro de la carpeta "content" de la raíz del proyecto.</dd>
+          <dt>/apps/imagenes/**/*</dt>
+          <dd>Ignorará tod el contenido de todas las carpetas que estén en el directorio especificado.</dd>
+          <dt>!/content/**/README.md</dt>
+          <dd>El simbolo "!" es una excepción. Si se elimina algún archivo de cualquier carpeta que esté dentro de la carpeta content, no se eliminarán los "README.md".</dd>
+        </dl>
+      </div>
+    </section>
+    <!-- README.md -->
+    <section>
+      <div>
+        <h2>README.md</h2>
+        <p>Es una excelente práctica en los proyectos, <b>md</b> significa Markdown, que es una especie de código que te permite cambiar la manera en que se ve un archivo de texto.</p>
+        <p>Lo interesante de Markdown es que funciona en muchas páginas, por ejemplo la edición en Wikipedia; es un lenguaje intermedio que no es HTML, no es texto plano, es una manera de crear excelentes texto formateados, pero puede interpretar código html y texto plano o texto de marcado como el uso de hash (#text) para marcar títulos o subtítulos (##text, ###text) dentro del contenido.</p>
+        <p>Se puede aprender mucho de los proyectos <i>opensource</i>, ejemplo: <a target="_blank" href="https://github.com/vuejs/vue" title="Proyecto ejemplo">vuejs/vue</a></p>
+        <figure>
+          <img src="../Imgs/readmemd1.jpg" alt="Ejemplo del archivo README.md dentro del proyecto de vue" title="README.md dentro de vue">
+          <img src="../Imgs/readmemd2.jpg" alt="Botón de edición del archivo README.md" title="edición de README.md">
+        </figure>
+        <p>Se puede editar el archivo README.md abriendolo directamente o mediante un editor online como <a target="_blank" href="https://pandao.github.io/editor.md/en.html" title="Editor online">MEditor.md</a></p>
+      </div>
+    </section>
+    <!-- GitHub-Pages -->
+    <section>
+      <div>
+        <h2>GitHub-Pages</h2>
+        <p>GitHub tiene un servicio de hosting gratis llamado <a target="_blank" href="https://pages.github.com/">GitHub Pages</a>, tu puedes tener un repositorio donde el contenido del repositorio se vaya a GitHub y se vea online.</p>
+        <h3>Paso 1:</h3>
+        <p>Crear un repositorio público con el nombre del usuario agregandole ".github.io" (si ya tienes un repositorio con tu nombre de usuario solo cambiale el nombre dirigiendote a la pestaña Settings).</p>
+        <figure>
+          <img src="../Imgs/ghPages1.jpg" alt="Ejemplo de creación del repositorio" title="Creción de repositorio">
+        </figure>
+        <h3>Paso 2:</h3>
+        <p>Se copia el URL del repositorio dependiendo si se tiene configurada la llave SSH o no y desde la terminal git se clona el repositorio (se debe posicionarse en la carpeta donde se desea clonarlo) con el comando <b>git clone <span>URL</span></b>.</p>
+        <figure>
+          <img src="../Imgs/colab2.jpg" alt="Ejemplo de copiado de URL (HTML o SSH) del repositorio" title="URL de repositorio">
+        </figure>
+        <h3>Paso 3:</h3>
+        <p>Se crea un achivo "index.html" dentro de la carpeta del proyecto con el nombre de usuario que se crea al clonar el repositorio y desde la terminal git se hace un <b>add</b> y <b>commit</b> para agregarlo a GitHub.</p>
+        <h3>Paso 4:</h3>
+        <p>Se configura el repositorio para que sea el que carga GitHub Pages entrando a la pestaña <b>Settings</b> y se selecciona la sección <b>Pages</b> en la que se verifica que se este usando la rama deseada que se visualizará en la página, generalmente es la rama <b>main</b>.</p>
+        <figure>
+          <img src="../Imgs/rama1.jpg" alt="Ejemplo de la pestaña Settings" title="Pestaña Settings">
+          <img src="../Imgs/ghPages2.jpg" alt="Ejemplo de la sección Pages opción Source" title="Sección Pages">
+        </figure>
+        <h4>Tip:</h4>
+        <p>Se tienen que cargar los archivos en el repositorio que se quieran usar en la página como los archivos binarios.</p>
+        <h3>Paso Extra:</h3>
+        <p>Si se desea hacer los mismos pasos con un repositorio con otro nombre, se tiene que agreagar el origen de la página en el link, ejemplo:</p>
+        <figure>
+          <img src="../Imgs/ghPages3.jpg" alt="Ejemplo del cambio de rama en un repositorio con un nombre distinto al nombre del usuario" title="Cambio de rama en la sección Pages">
+          <img src="../Imgs/ghPages4.jpg" alt="Ejemplo de error 404 con el link que genera GitHub" title="Error con el link generado">
+        </figure>
+        <p>Al link que nos crea GitHub Pages: <u>https://patokuack.github.io/DisenoWeb/</u> se le adiciona la carpeta o archivo en donde se encuentra el documento a visualizar HTML: <u>HTML/Paginas/indexhtml.html</u></p>
       </div>
     </section>
     <section>

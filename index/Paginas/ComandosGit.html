@@ -23,8 +23,8 @@
         <dl>
           <dt>alias <span>nombrarAlias</span>="<span>instrucción</span>"</dt>
           <dd>Permite llamar una instrucción escribiendo solo un alias (ejemplo: alias arbolito="git log --all ...").</dd>
-          <dt>git config --global alias.superlog "<span>nombre_del_alias</span>"</dt>
-          <dd>Guarda el alias para evitar que se borre al reiniciar la computadora.</dd>
+          <dt>git config --global alias.<span>nombre_del_alias</span> "<span>instrucción</span>"</dt>
+          <dd>Guarda el alias en la terminal de git para evitar que se borre al reiniciar la computadora (Se manda llamar con: git <u>alias</u>).</dd>
           <dt>git init</dt>
           <dd>Arranca un repositorio.</dd>
           <dt>q</dt>
@@ -60,6 +60,11 @@
               <dd>La "-m" indica que se le agregará un mensaje para poder verlo en el futuro como una referencia del cambio.</dd>
               <dt>git commit -am "<span>mensaje</span>"</dt>
               <dd>Hace un add junto con el commit y el mensaje, solo se debe utilizar con archivos que ya hayan sido ejecutados con un "git add" previamente, es decir, no funciona para archivos recien creados.</dd>
+              <dt>git commit --amend</dt>
+              <dd>
+                Incluye un cambio hecho al proyecto al último commit hecho, pero se debe de hacer un "add" antes de usar este commit. También esta instrucción da la opción de modificar el mensaje del commit en el que se guardarán estos últimos cambios.
+                <p class="inportnt">*No se utiliza con commits que ya esten en el repositorio remoto.</p>
+              </dd>
             </dl>
           </dd>
           <dt>git status</dt>
@@ -85,9 +90,13 @@
               <dt>git log --all --graph</dt>
               <dd>Muestra por medio de unas lineas en el margen lateral como han funcionado las ramas.</dd>
               <dt>git log --all --graph --decorate --oneline</dt>
-              <dd>Muestra toda la historia del proyecto desde que se inicializa</dd>
+              <dd>Muestra toda la historia del proyecto desde que se inicializa.</dd>
+              <dt>git log --oneline</dt>
+              <dd>Muestra el historial de cambios en una forma reducida.</dd>
             </dl>
           </dd>
+          <dt>git reflog</dt>
+          <dd>Muestra toda la actividad que ha tenido el proyecto.</dd>
           <dt>git config</dt>
           <dd>
             <dl>
@@ -115,14 +124,21 @@
           <dt>git reset</dt>
           <dd>
             <dl>
+              <p>Con ayuda de "<i>git reflog</i>" se obtiene el hash o id de cada commit o cambio en el proyecto:</p>
+              <figure>
+                <img src="../Imgs/reflog1.jpg" alt="Ejemplo del comando 'git reflog'" title="git reflog">
+              </figure>
               <dt>git reset --soft</dt>
               <dd>Borramos todo el historial y los registros de Git pero guardamos los cambios que tengamos en Staging, así podemos aplicar las últimas actualizaciones a un nuevo commit.</dd>
               <dt>git reset <span>id-commit</span> --soft</dt>
               <dd>Se posiciona en la version especificada y elimina las versiones posteriores a esa del repositorio.</dd>
               <dt>git reset --hard</dt>
               <dd>Borra todo. Todo todito, absolutamente todo. Toda la información de los commits y del área de staging, se borra el historial.</dd>
-              <dt>git reset <span>id-commit</span> --hard</dt>
-              <dd>Restaura los documentos a la version especificada del repositorio y elimina las versiones posteriores de git y del disco duro.</dd>
+              <dt>git reset --hard <span>id-commit</span></dt>
+              <dd>
+                <u>Restaura los documentos</u> a la version especificada del repositorio y elimina las versiones posteriores de git y del disco duro.
+                <p class="importnt">*Es una mala practica.</p>
+              </dd>
               <dt>git reset HEAD</dt>
               <dd>Este es el comando para sacar archivos del área de Staging. No para borrarlos ni nada de eso, solo para que los últimos cambios de estos archivos no se envíen al último commit, a menos que cambiemos de opinión y los incluyamos de nuevo en staging con git add, por supuesto.</dd>
             </dl>
@@ -269,16 +285,88 @@
             <img src="../Imgs/tag2.jpg" alt="ejemplo de tag mandado a GitHub" title="ejemplo de tag mandado a GitHub">
             <img src="../Imgs/tag3.jpg" alt="ejemplo de tag en GitHub" title="ejemplo de tag en GitHub">
           </figure>
-          <dt></dt>
-          <dd></dd>
-          <dt></dt>
-          <dd></dd>
-          <dt></dt>
-          <dd></dd>
-          <dt></dt>
-          <dd></dd>
-          <dt></dt>
-          <dd></dd>
+          <dt>git rebase <span>nombre_de_la_rama</span></dt>
+          <dd>
+            Con rebase puedes recoger todos los cambios confirmados en una rama y ponerlos sobre otra.
+            <p>
+              Primero se le hace un rebase a la rama a la que se aderirá la rama en la que se esta posicionado, con esto se actualizará automaticamente la rama en la que se esta posicionado con los ultimos cambios hechos a la rama especificada en el comando y después se hace un rebase a la rama que se le aderirá estando posicionado en la rama a la que se le aderirá, ejemplo:
+            </p>
+            <ul>
+              <li>(rama2)$ git rebase rama2</li>
+              <li>(main)$ git rebase rama2</li>
+            </ul>
+            <p>Primero se le hace rebase a la rama con los cambios que se aderirán y luego a la rama que va a quedar con todo unido.</p>
+            <p>Los problemas con éste comando son que no queda historia, no queda registro de las actividades de los usuarios y si hay muchos cambios entre ramas crea muchos conflictos que se tienen que resolver manualmente.</p>
+          </dd>
+          <p class="importnt">*REBASE solo se debe usar en repositorios locales y nunca en remotos.</p>
+          <dt>git stash</dt>
+          <dd>
+            <dl>
+              <p>Es una forma útil de tener almacenados en una memoria temporal los cambios recientes del proyecto, poder moverlos entre ramas y después volver a recuperarlos.</p>
+              <p>Podemos usar git stash para guardar cambios sin hacer commit y cambiar de rama.</p>
+              <p>git stash es usado cuando tenemos cambios que no merecen una rama o no merecen un rebase si no simplemente estamos probando algo y luego se necesita volver rápidamente a tu versión anterior la cual es la correcta.</p>
+              <dt>git stash</dt>
+              <dd>Teniendo un cambio en el proyecto se aplica <i>git stash</i> y los cambios se guardarán haciendo que el proyecto vuelva a su forma antes de los cambios sin commit.</dd>
+              <dt>git stash list</dt>
+              <dd>Muestra una lista de stash guardados.</dd>
+              <dt>git stash pop</dt>
+              <dd>Aplica el stash guardado al proyecto de la rama en la que se esta posicionado.</dd>
+              <dt>git stash branch <span>nombre_de_la_rama</span></dt>
+              <dd>copia el proyecto y aplica los cambios en una rama nueva.</dd>
+              <dt>git stash drop</dt>
+              <dd>Elimina el stage guardado.</dd>
+            </dl>
+          </dd>
+          <dt>git clean</dt>
+          <dd>
+            <dl>
+              <dt>git clean --dry-run</dt>
+              <dd>Simula una eliminación de archivos innecesarios (sin seguimiento que se puede indexar), muestra en pantalla los archivos que se eliminarían.</dd>
+              <dt>git clean -f</dt>
+              <dd>Elimina los archivos innecesarios mostrados con "dry-run".</dd>
+              <dt>git clean -df</dt>
+              <dd>Elimina los archivos y carpetas innecesarias.</dd>
+              <dt>git clean -xdf</dt>
+              <dd>Elimina los archivos y carpetas innecesarias aunque en el documento <i>.gitignore</i> estén indicadoas para ser ignoradas.</dd>
+            </dl>
+          </dd>
+          <dt>git cherry-pick <span>código_del_commit</span></dt>
+          <dd>Posicionado en una rama A, trae los cambios especificos realizados en un commit de la rama B.</dd>
+          <p class="inportnt">*Cherry-pick es una mala practica porque recontruye la historia del proyecto.</p>
+          <dt>git grep</dt>
+          <dd>
+            <dt>git grep "<span>palabra</span>"</dt>
+            <dd>Busca una palabra en todos los <u>documentos</u> de la rama del proyecto en donde se esta posicionado y muestra los documentos en donde se encuentra esa palabra junto con su línea de código.</dd>
+            <dt>git grep -n "<span>palabra</span>"</dt>
+            <dd>Busca la palabra en todos los <u>documentos</u> de la rama del proyecto en donde se esta posicionado y muestra los documentos en donde se encuentra esa palabra junto con su línea de código y la línea del código en donde se encuentra.</dd>
+            <dt>git grep -c "<span>palabra</span>"</dt>
+            <dd>Busca la palabra y muestra en que <u>documentos</u> se encuentra junto con las veces que se repite esa palabra en ese documento.</dd>
+          </dd>
+          <dt>git log -S "<span>palabra</span>"</dt>
+          <dd>Busca y muestra los <u>commit</u> en los que esta involucrada la palabra especificada.</dd>
+          <h3>Alias dentro de Git.</h3>
+          <dt>git shortlog -sn</dt>
+          <dd>Muestra cuantos commit han hecho cada miembro del equipo.</dd>
+          <dt>git shortlog -sn --all</dt>
+          <dd>Muestra cuantos commit han hecho cada miembro del equipo hasta los que han sido eliminado.</dd>
+          <dt>git shortlog -sn --all --no-merge</dt>
+          <dd>Muestra cuantos commit han hecho cada miembros quitando los eliminados sin los merges.</dd>
+          <dt>git blame -c <span>archivo</span></dt>
+          <dd>Muestra quien hizo cada cambio del proyecto línea por línea.</dd>
+          <dt>git <span>comando</span> --help</dt>
+          <dd>Muestra como funciona el comando especificado abriendo el navegador con el manual de cada comando.</dd>
+          <dt>git blame <span>archivo</span> -L<span>línea_inicial</span>,<span>línea_final</span> -c</dt>
+          <dd>Muestra quien hizo cada cosa línea por línea indicándole desde que línea ver, ejemplo: -L<span>35</span>,<span>50</span></dd>
+          <dt>git branch -r</dt>
+          <dd>Muestra todas las ramas remotas.</dd>
+          <dt>git branch -a</dt>
+          <dd>Muestra todas las ramas () locales (e) y remotas (e).
+            <ul>
+              <li>En verde y con asterisco la rama en la que se esta posicionado.</li>
+              <li>En color blanco las ramas locales.</li>
+              <li>En color ojo las ramas remotas.</li>
+            </ul>
+            </dd>
         </dl>
       </div>
     </section>
@@ -544,6 +632,12 @@
         <p>Al link que nos crea GitHub Pages: <u>https://patokuack.github.io/DisenoWeb/</u> se le adiciona la carpeta o archivo en donde se encuentra el documento a visualizar HTML: <u>HTML/Paginas/indexhtml.html</u></p>
       </div>
     </section>
+    <!--  -->
+    <section>
+      <div>
+      </div>
+    </section>
+    <!-- Referencias -->
     <section>
       <div>
         <h3>Referencias:</h3>

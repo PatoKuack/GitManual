@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uso de ramas</title>
+</head>
+<body>
+  <header>
+    <section>
+      <div>
+        <h1>Uso de ramas.</h1>
+      </div>
+    </section>
+  </header>
+  <main>
+    <section>
+      <div>
+        <dl>
+          <dt>git checkout main</dt>
+          <dd>Se deben crear las ramas desde la versión más resiente qu debería ser la rama main.</dd>
+          <dt>git branch <span>rama's_name</span></dt>
+          <dd>Se crea la rama.</dd>
+          <dt>git branch</dt>
+          <dd>Se verifica que se hayan creado las ramas.</dd>
+          <dt>git push origin <span>rama's_name</span></dt>
+          <p>Cuando se trabaja con un compañero en el proyecto, el creador del proyecto en GitHub le tiene que dar acceso al proyecto para que el compañero pueda subir sus aportaciones de código o para clonar el proyecto en caso de que sea privado.</p>
+          <figure>
+            <img src="../Imgs/rama1.jpg" alt="Paso 1 para dar acceso a un compañero al proyecto (settings)" title="Paso 1 para dar acceso a un compañero al proyecto (settings)">
+            <img src="../Imgs/rama2.jpg" alt="Paso 2 para dar acceso a un compañero al proyecto (manage access)" title="Paso 2 para dar acceso a un compañero al proyecto (manage access)">
+          </figure>
+          <p>Al darle acceso a un usuario para que modifique o aporte en nuestro proyecto, nos brindarán un link para compartirlo con el usuario colaborador e invitarlo al proyecto, una vez que acepte la invitación podrá iniciar a hacer aportaciones a nuestro proyecto.</p>
+          <dt>git pull origin <span>nombre_de_la_rama</span></dt>
+          <dd>Importamos la rama creada a nuestro repositorio del proyecto local.</dd>
+          <dt>git checkout <span>nombre_de_la_rama</span></dt>
+          <dd>Nos colocamos en la rama creada para trabajar en ella.</dd>
+          <dt>git commit -am "<span>mensaje_introductorio_del_commit</span>"</dt>
+          <dd>Una vez modificada la rama se agregan y guardan los cambios.</dd>
+          <dt>git pull origin <span>nombre_de_la_rama</span></dt>
+          <dd>Se importa el repositorio por si hay cambios de otros usuarios.</dd>
+          <dt>git push origin <span>nombre_de_la_rama</span></dt>
+          <dd>Se suben los cambios hechos a la rama.</dd>
+          <p>Generalmente es el lider del proyecto, product manager o el CTO el que se encarga de unir las ramas cuando ya el trabajo esta completado por lo que debe hacer pull con la rama que desea unir, después verifica que el código este correcto y...</p>
+          <dt>git checkout <span>main</span></dt>
+          <dd>Se dirige a la rama principal que es a la que se le adicionarán las aportaciones de las otras ramas.</dd>
+          <dt>git merge <span>nombre_de_la_rama_secundaria</span></dt>
+          <dd>Se le agregan las aportaciones de alguna rama secundaria a la rama principal.</dd>
+          <dt>git pull origin <span>main</span></dt>
+          <dd>Verifica que no hayan cambios externos que eviten hacer el push.</dd>
+          <dt>git push origin <span>main</span></dt>
+          <dd>Se sube a GitHub los cambios en el repositorio.</dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

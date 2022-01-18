@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subir proyecto</title>
+</head>
+<body>
+  <header>
+    <section>
+      <div>
+        <h1>Subir un proyecto a GitHub.</h1>
+      </div>
+    </section>
+  </header>
+  <main>
+    <section>
+      <div>
+        <p>Se crea un repositorio en GitHub:</p>
+        <figure>
+          <img src="../Imgs/repository_paso1.jpg" alt="paso 1 para vincular un repositorio con Git y GitHub" title="paso 1 para vincular un repositorio">
+          <figcaption>Se selecciona en el menu, la opción "crear repositorio".</figcaption>
+        </figure>
+        <figure>
+          <img src="../Imgs/repository_paso2.jpg" alt="paso 2 para vincular un repositorio con Git y GitHub" title="paso 2 para vincular un repositorio">
+          <figcaption>Se le asigna nombre, descripción, publico o provado, agregar un README (introducción al proyecto" y si se desea un gitignore o/y una licencia.</figcaption>
+        </figure>
+        <figure>
+          <img src="../Imgs/repository_paso3.jpg" alt="paso 3 para vincular un repositorio con Git y GitHub" title="paso 3 para vincular un repositorio">
+          <figcaption>Se despliega la opción CLONE en donde se puede copiar la URL del repositorio para poder clonarlo.</figcaption>
+        </figure>
+        <p>Posicionado en la carpeta del computador en donde se tiene el proyecto que se subirá al repositorio creado se usa el comando <b>git remote add origin <u>URL copiado</u></b> para crear un "origin" con el que se descarga el repositorio y se suben cambios o aportes desde nuestro computador. Con <b>git remote -v</b> se puede comprobar que se hizo todo correctamente, aparecerá un texto que indica el origin, la URL y entre parentesis "fetch" y "push".</p>
+        <img src="../Imgs/repository_paso4.jpg" alt="paso 4 para vincular un repositorio con Git y GitHub" title="paso 4 para vicular un repositorio">
+        <p id="cambioRama">Si la rama principal se llama "master" se le cambia el nombre a la rama principal ya que desde 2020 se dejó de utilizar "master" para convertirse en "main" con el comando <b>git checkout <u>master</u></b> para dirigirse a la rama master, después se escribe el comando <b>git branch -m <u>main</u></b></p>
+        <img src="../Imgs/repository_paso5.jpg" alt="paso 5 para vincular un repositorio con Git y GitHub" title="paso 5 para vicular un repositorio">
+        <p>Se indica que las ramas principales sean main para futuros proyectos con el comando <b>git config --global init.defaultBranch <u>main</u></b></p>
+        <img src="../Imgs/repository_paso6.jpg" alt="paso 6 para vincular un repositorio con Git y GitHub" title="paso 6 para vicular un repositorio">
+        <p>Se envia al origen, la rama main con el comando <b>git push origin <u>main</u></b>. Si se queda pasmada la terminal de git permitiendo solo ingresar texto, entonces se presiona <i>CONTROL + c</i> para detener el proceso, después se abre otra terminal como en CMD o preferentemente una terminal de "visual studio code" y se vuelve a escribir este comando.</p>
+        <img src="../Imgs/repository_paso7.jpg" alt="paso 7 para vincular un repositorio con Git y GitHub" title="paso 7 para vicular un repositorio">
+        <p>Se integran los cambios remotos antes de hacer un push, para esto se importa el repositorio desde el origen, la rama main con el comando <b>git pull origin <u>main</u></b></p>
+        <img src="../Imgs/repository_paso8.jpg" alt="paso 8 para vincular un repositorio con Git y GitHub" title="paso 8 para vicular un repositorio">
+        <p>Se fucionan las historias no relacionadas, es decir, la rama local y la rama de GitHub con el comando <b>git pull origin main --allow-unrelated-histories</b>, esto generalmente solo se usa con el primer pull a un repositorio.</p>
+        <img src="../Imgs/repository_paso9.jpg" alt="paso 9 para vincular un repositorio con Git y GitHub" title="paso 9 para vicular un repositorio">
+        <p>Se sube el proyecto con todos sus commits con el comando <b>git push origin <u>main</u></b></p>
+        <img src="../Imgs/repository_paso10.jpg" alt="paso 10 para vincular un repositorio con Git y GitHub" title="paso 10 para vicular un repositorio">
+        <p>Se recarga la página de GitHub y se podrá visualizar los archivos y su información como sus comits o fecha de ultima modificación.</p>
+        <img src="../Imgs/repository_paso11.jpg" alt="paso 11 para vincular un repositorio con Git y GitHub" title="paso 11 para vicular un repositorio">
+      </div>
+    </section>
+  </main>
+</body>
+</html>

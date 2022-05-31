@@ -4,28 +4,51 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cambiar HTTP por SSH</title>
+  <link rel="stylesheet" href="../Estilos/styleGit1.css">
+  <title>Uso de ramas</title>
 </head>
-<body>
-  <header>
-    <section>
-      <div>
-        <h1>Cambiar la conexión HTTP por SSH.</h1>
-      </div>
-    </section>
+<body class="body">
+  <header class="container">
+    <h1>Uso de ramas.</h1>
   </header>
   <main>
-    <section>
+    <section class="container">
       <div>
-        <p>Después de crear la llave SSH con los comandos indicados se procede a lo siguiente:</p>
-        <figure>
-          <img src="../Imgs/SSH5.jpg" alt="paso 1 para conectar GitHub con SSH" title="paso 1 para conectar GitHub con SSH">
-          <img src="../Imgs/SSH6.jpg" alt="paso 2 para conectar GitHub con SSH" title="paso 2 para conectar GitHub con SSH">
-          <img src="../Imgs/SSH7.jpg" alt="paso 3 para conectar GitHub con SSH" title="paso 3 para conectar GitHub con SSH">
-          <img src="../Imgs/SSH8.jpg" alt="paso 4 para conectar GitHub con SSH" title="paso 4 para conectar GitHub con SSH">
-          <img src="../Imgs/SSH9.jpg" alt="paso 5 para conectar GitHub con SSH" title="paso 5 para conectar GitHub con SSH">
-          <img src="../Imgs/SSH10.jpg" alt="paso 6 para conectar GitHub con SSH" title="paso 6 para conectar GitHub con SSH">
-        </figure>
+        <h2>Ramas.</h2>
+        <dl>
+          <dt>git branch <u>rama's_name</u></dt>
+          <dd>Crea una rama con el nombre que se especifique, las ramas se crean en la rama principal (main).</dd>
+          <dt>git branch</dt>
+          <dd>Muestra las ramas creadas.</dd>
+          <dt>git checkout <u>rama's_name</u></dt>
+          <dd>Se posiciona en la rama especificada (rama's_name) para trabajar sobre esta.</dd>
+          <dt>git pull origin <u>nombre_de_la_rama</u></dt>
+          <dd>Importa la rama creada o los cambios que esten en el repositorio remoto al repositorio local.</dd>
+          <dt>git push origin <u>rama's_name</u></dt>
+          <dd>Manda los cambios de la rama en la que se esta posicionado a la rama especificada (rama's_name) del erpositorio remoto.</dd>
+        </dl>
+        <p>Cuando se trabaja con un compañero en el proyecto, el creador del proyecto en GitHub le tiene que dar acceso al proyecto para que el compañero pueda subir sus aportaciones de código o para clonar el proyecto en caso de que sea privado.</p>
+        <img src="../Imgs/rama1.jpg" alt="Paso 1 para dar acceso a un compañero al proyecto (settings)" title="Paso 1 para dar acceso a un compañero al proyecto (settings)">
+        <img src="../Imgs/rama2.jpg" alt="Paso 2 para dar acceso a un compañero al proyecto (manage access)" title="Paso 2 para dar acceso a un compañero al proyecto (manage access)">
+        <p>Al darle acceso a un usuario para que modifique o aporte en nuestro proyecto, nos brindarán un link para compartirlo con el usuario colaborador e invitarlo al proyecto, una vez que acepte la invitación podrá iniciar a hacer aportaciones a nuestro proyecto.</p>
+      </div>
+    </section>
+    <section class="container">
+      <div>
+        <h2>Merge.</h2>
+        <p>Generalmente es el lider del proyecto, product manager o el CTO el que se encarga de unir las ramas cuando ya el trabajo esta completado por lo que debe hacer pull con la rama que desea unir, después verifica que el código este correcto y hace un merge (union de ramas).</p>
+        <dl>
+          <dt>git checkout <u>main</u></dt>
+          <dd>Se dirige a la rama principal que es a la que se le adicionarán las aportaciones de las otras ramas.</dd>
+          <dt>git merge <u>nombre_de_la_rama_secundaria</u></dt>
+          <dd>Se le agregan las aportaciones de alguna rama secundaria a la rama principal.</dd>
+          <p>Al hacer un merge la rama secundaria desaparecerá y todo su contenido se guardará en la rama main, así que practicamente es como si se hicieran cambios en la rama main, se agregaran al stage (git add .) y se hiciera un commit.</p>
+          <p>Al hacer el merge se abrirá un entorno dentro de la consola en el que se tiene que escribir un mensaje como si fuera un commit, después se presiona ESC, seguido de SHIFT + Z y de nuevo SHIFT + Z.</p>
+          <dt>git pull origin <u>main</u></dt>
+          <dd>Verifica que no hayan cambios externos que eviten hacer el push.</dd>
+          <dt>git push origin <u>main</u></dt>
+          <dd>Se sube a GitHub los cambios en el repositorio.</dd>
+        </dl>
       </div>
     </section>
   </main>

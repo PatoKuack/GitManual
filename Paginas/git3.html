@@ -4,48 +4,73 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subir proyecto</title>
+  <link rel="stylesheet" href="../Estilos/styleGit1.css">
+  <title>Cambiar HTTP por SSH</title>
 </head>
-<body>
-  <header>
-    <section>
-      <div>
-        <h1>Subir un proyecto a GitHub.</h1>
-      </div>
-    </section>
+<body class="body">
+  <header class="container">
+    <h1>Cambiar la conexión HTTP por SSH.</h1>
   </header>
   <main>
-    <section>
+    <section class="container">
       <div>
-        <p>Se crea un repositorio en GitHub:</p>
-        <figure>
-          <img src="../Imgs/repository_paso1.jpg" alt="paso 1 para vincular un repositorio con Git y GitHub" title="paso 1 para vincular un repositorio">
-          <figcaption>Se selecciona en el menu, la opción "crear repositorio".</figcaption>
-        </figure>
-        <figure>
-          <img src="../Imgs/repository_paso2.jpg" alt="paso 2 para vincular un repositorio con Git y GitHub" title="paso 2 para vincular un repositorio">
-          <figcaption>Se le asigna nombre, descripción, publico o provado, agregar un README (introducción al proyecto" y si se desea un gitignore o/y una licencia.</figcaption>
-        </figure>
-        <figure>
-          <img src="../Imgs/repository_paso3.jpg" alt="paso 3 para vincular un repositorio con Git y GitHub" title="paso 3 para vincular un repositorio">
-          <figcaption>Se despliega la opción CLONE en donde se puede copiar la URL del repositorio para poder clonarlo.</figcaption>
-        </figure>
-        <p>Posicionado en la carpeta del computador en donde se tiene el proyecto que se subirá al repositorio creado se usa el comando <b>git remote add origin <u>URL copiado</u></b> para crear un "origin" con el que se descarga el repositorio y se suben cambios o aportes desde nuestro computador. Con <b>git remote -v</b> se puede comprobar que se hizo todo correctamente, aparecerá un texto que indica el origin, la URL y entre parentesis "fetch" y "push".</p>
-        <img src="../Imgs/repository_paso4.jpg" alt="paso 4 para vincular un repositorio con Git y GitHub" title="paso 4 para vicular un repositorio">
-        <p id="cambioRama">Si la rama principal se llama "master" se le cambia el nombre a la rama principal ya que desde 2020 se dejó de utilizar "master" para convertirse en "main" con el comando <b>git checkout <u>master</u></b> para dirigirse a la rama master, después se escribe el comando <b>git branch -m <u>main</u></b></p>
-        <img src="../Imgs/repository_paso5.jpg" alt="paso 5 para vincular un repositorio con Git y GitHub" title="paso 5 para vicular un repositorio">
-        <p>Se indica que las ramas principales sean main para futuros proyectos con el comando <b>git config --global init.defaultBranch <u>main</u></b></p>
-        <img src="../Imgs/repository_paso6.jpg" alt="paso 6 para vincular un repositorio con Git y GitHub" title="paso 6 para vicular un repositorio">
-        <p>Se envia al origen, la rama main con el comando <b>git push origin <u>main</u></b>. Si se queda pasmada la terminal de git permitiendo solo ingresar texto, entonces se presiona <i>CONTROL + c</i> para detener el proceso, después se abre otra terminal como en CMD o preferentemente una terminal de "visual studio code" y se vuelve a escribir este comando.</p>
-        <img src="../Imgs/repository_paso7.jpg" alt="paso 7 para vincular un repositorio con Git y GitHub" title="paso 7 para vicular un repositorio">
-        <p>Se integran los cambios remotos antes de hacer un push, para esto se importa el repositorio desde el origen, la rama main con el comando <b>git pull origin <u>main</u></b></p>
-        <img src="../Imgs/repository_paso8.jpg" alt="paso 8 para vincular un repositorio con Git y GitHub" title="paso 8 para vicular un repositorio">
-        <p>Se fucionan las historias no relacionadas, es decir, la rama local y la rama de GitHub con el comando <b>git pull origin main --allow-unrelated-histories</b>, esto generalmente solo se usa con el primer pull a un repositorio.</p>
-        <img src="../Imgs/repository_paso9.jpg" alt="paso 9 para vincular un repositorio con Git y GitHub" title="paso 9 para vicular un repositorio">
-        <p>Se sube el proyecto con todos sus commits con el comando <b>git push origin <u>main</u></b></p>
-        <img src="../Imgs/repository_paso10.jpg" alt="paso 10 para vincular un repositorio con Git y GitHub" title="paso 10 para vicular un repositorio">
-        <p>Se recarga la página de GitHub y se podrá visualizar los archivos y su información como sus comits o fecha de ultima modificación.</p>
-        <img src="../Imgs/repository_paso11.jpg" alt="paso 11 para vincular un repositorio con Git y GitHub" title="paso 11 para vicular un repositorio">
+        <h2>Creación de llave SSH.</h2>
+        <p>Para que haya una mayor seguridad en el proyecto se genera una llave SSH, para esto se abre el consola de GitBash y es recomendable estar posicionado <u>en home (~)</u>; esto es importante porque la llave SSH se implementa por computadora y no por proyecto. Esta llave se genera con el siguiente comando:</p>
+        <dl>
+          <dt>ssh-keygen -t rsa -b 4096 -C "<u>correo@mail.com</u>"</dt>
+          <dd>
+            Con "-t" se especifica el algoritmo que se utilizará para crear la llave que en este caso es rsa.<br/>
+            Con "-b" se especifica que tan compleja es la llave.<br/>
+            Con "4096" se indica la complejidad de la llave desde una perspectiva matemática.<br/>
+            Con "-C" se indica a que correo electrónico va a estar conectada la llave y el cual debe ser el correo que se tiene en el repositorio de GitHub.<br/>
+            Después de ingresar el código se da enter si es que la dirección de almacenamiento sugerido es deseada o sino se puede escribir una dirección deseada.<br/>
+            Se puede ingresar una contraseña con espacios llamada "passphrase" para mayor seguridad.
+          </dd>
+          <figure>
+            <img src="../Imgs/SSH1.jpg" alt="generar llave SSH (ubicación)" title="generar llave SSH (ubicación)">
+            <img src="../Imgs/SSH2.jpg" alt="generar llave SSH (passphrase)" title="generar llave SSH (passphrase)">
+          </figure>
+          <p class="importnt">*La llave privada nunca se comparte.</p>
+          <p>Una vez que se tiene la llave se debe agregar al entorno (indicarle al sistema operativo que la llave existe).</p>
+          <dt>eval $(ssh-agent -s)</dt>
+          <dd>
+            Verifica que el servidor de llaves esta activo: "Agent" indica que el servidor de SSH esta activo, "pid" es el id del proceso y el número al final indica que el proceso esta activo.
+          </dd>
+          <figure>
+            <img src="../Imgs/SSH3.jpg" alt="Verificación del servidor activo" title="Verificación del servidor activo">
+          </figure>
+          <dt>ssh-add <i>~/.ssh/id_rsa</i></dt>
+          <dd>
+            En home (~) por default se encuentra la carpeta ".ssh" (como empieza por punto se supone que es una carpeta oculta), en donde se encuentran las llaves publicas y privadas.<br/>
+            El comando agregará la llave al sistema, debe contener la ruta de la llave <u>privada</u>.
+          </dd>
+          <figure>
+            <img src="../Imgs/SSH4.jpg" alt="agregar llave al sistema" title="agregar llave al sistema">
+          </figure>
+          <p>Después de haber creando un entorno local, se debe conectar con GitHub y se remplaza la conexión HTTPS por una conexión SSH para hacer git pull y git push sin usar contraseñas y seguir manteniendo una conexión segura.</p>
+          <p>Es importante que se cree una llave única (pública y privada) por cada computadora y por cada usuario.</p>
+        </dl>
+      </div>
+    </section>
+    <section class="container">
+      <div>
+        <h2>Vinculación de GitHub con la llave SSH.</h2>
+        <p>Después de crear la llave SSH con los comandos indicados se procede a lo siguiente:</p>
+        <p>Se abren la sección <b>Settings</b>:</p>
+        <img src="../Imgs/SSH5.jpg" alt="paso 1 para conectar GitHub con SSH" title="paso 1 para conectar GitHub con SSH">
+        <p>En el apartado <b>SSH and GPG keys</b> se selecciona el botón <b>New SSH key</b>:</p>
+        <img src="../Imgs/SSH6.jpg" alt="paso 2 para conectar GitHub con SSH" title="paso 2 para conectar GitHub con SSH">
+        <p>En "Title" se coloca una descripción sobre el dispositivo que esta conectada a la llave, ejemplo: Laptop de desarrollo frontend de Pato Kuack.</p>
+        <p>En "Key" se pega la llave pública del dispositivo al que se vinculará la llave, normalmente estas llaves terminan con el correo que le asignamos al entorno de git y comienzan con "ssh-rsa ...":</p>
+        <img src="../Imgs/SSH7.jpg" alt="paso 3 para conectar GitHub con SSH" title="paso 3 para conectar GitHub con SSH">
+        <p>Se agrega la clase y se ingresa la contraseña:</p>
+        <img src="../Imgs/SSH8.jpg" alt="paso 4 para conectar GitHub con SSH" title="paso 4 para conectar GitHub con SSH">
+        <p>Se muestra que se agregó correctamente:</p>
+        <img src="../Imgs/SSH9.jpg" alt="paso 5 para conectar GitHub con SSH" title="paso 5 para conectar GitHub con SSH">
+        <p>Después se copia el código de clonado SSH de alguno de los repositorios:</p>
+        <img src="../Imgs/SSH10.jpg" alt="paso 6 para conectar GitHub con SSH" title="paso 6 para conectar GitHub con SSH">
+        <p>Y si al utilizar en la consola GitBash posicionado en un proyecto el comando <b>git remote -v</b> aparecem las URL de HTTPS,entonces se debe cambiar la URL de HTTPS por la que se copió en el paso anterior de SSH, para esto se utiliza el comando <b>git remote set-url origin <u><i>URL del SSH copiado</i></u></b></p>
+        <p>Ahora se vuelve a verificar que la URL de SSH esté en los origin con el comando <b>git remote -v</b></p>
       </div>
     </section>
   </main>

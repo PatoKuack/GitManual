@@ -4,53 +4,100 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uso de ramas</title>
+  <link rel="stylesheet" href="../Estilos/styleGit1.css">
+  <title>Petición y colaboración</title>
 </head>
-<body>
-  <header>
-    <section>
-      <div>
-        <h1>Uso de ramas.</h1>
-      </div>
-    </section>
+<body class="body">
+  <header class="container">
+    <h1>Pull request</h1>
+    <p>
+      En un entorno profesional normalmente se bloquea la rama main, y para enviar código a dicha rama pasa por un "code review", ya que se realizan pruebas se envía el código a servidores que normalmente los llamamos "staging develop" (servidores de pruebas) luego de que se realizan las pruebas pertinentes tanto de código como de la aplicación, estos pasan al servidor de producción con un "<b>pull request</b>" (también llamado "merge request" o "push request") que une los códigos. Todo esto generalmente lo hace el líder de proyecto o el DevOps (administrador del entorno de desarrollo).
+    </p>
   </header>
   <main>
-    <section>
+    <!-- Pull request -->
+    <section class="container">
       <div>
+        <p>Pull request a mano:</p>
+        <img src="../Imgs/pullRequest1.jpg" alt="Ejemplo de creación de un 'pull request' a mano" title="Creación de un 'pull request' a mano">
+        <p>Pull request directo:</p>
+        <img src="../Imgs/pullRequest2.jpg" alt="Ejemplo de creación de un 'pull request' con ayuda de GitHub" title="Creación de un 'pull request' con ayuda de GitHub">
+        <img src="../Imgs/pullRequest3.jpg" alt="Ejemplo de creación de un 'pull request' con ayuda de GitHub" title="Creación de un 'pull request' con ayuda de GitHub">
+        <p>
+          Al <i>pull request</i> se le pueden agregar detalles:
+          <ul>
+            <li>El título del <i>pull request</i> es el nombre del commit.</li>
+            <li>Se le puede colocar una descripción o un mensaje para quien lo revise.</li>
+            <li>En <u>reviewers</u> se le pueden agregar usuarios que lo reviser.</li>
+            <li>En <u>assignees</u> se le asigna a un usuario.</li>
+            <li>En <u>labels</u> se le pueden agregar etiquetas.</li>
+            <li>En <u>project</u> se agrupan repositorios dentro de GitHub.</li>
+            <li>En <u>milestone</u> se indica que se cumplió un objetivo que se tenía y que el <i>pull request</i> lo represeta.</li>
+          </ul>
+          Por último se presiona el botón "Crear pull request" para ejecutarlo y que las personas solicitadas revisen el <i>pull request</i>.
+        </p>
+        <p>
+          El <i>pull request</i> describe las acciones del código y el usuario correspondiente se encarga de revisar el código y pedir cambios o ejecutar el merge.
+        </p>
+        <p>Vista del reviewer o assignee del <i>pull request</i>:</p>
+        <img src="../Imgs/pullRequest4.jpg" alt="Ejemplo de vista del asignado de revisión (reviewer) o cesionario (assignee)" title="Vista del asignado de revisión (reviewer) o cesionario (assignee)">
+        <img src="../Imgs/pullRequest5.jpg" alt="Ejemplo de vista del asignado de revisión (reviewer) o cesionario (assignee)" title="Vista del asignado de revisión (reviewer) o cesionario (assignee)">
+        <p>
+          Desde la pestaña "<i>Files changed</i>" se pueden agregar comentarios, aprobar el <i>merge</i> o pedir cambios al proyecto.
+        </p>
+        <p>Vista del líder del proyecto ya listo para pedír de nuevo una revisión para autorizar un merge:</p>
+        <img src="../Imgs/pullRequest6.jpg" alt="Ejemplo de vista del líder de proyecto respondiendo la solicitud del reviewer" title="Vista del líder de proyecto: respondiendo la solicitud del reviewer">
+        <p>Vista del reviewer revisando los cambios. Se visualiza la última aportación o commit:</p>
+        <img src="../Imgs/pullRequest7.jpg" alt="Ejemplo de vista del reviewer revisando los cambios" title="Vista del reviewer: revisando los cambios">
+        <p>Vista del reviewer aprobando los cambios:</p>
+        <img src="../Imgs/pullRequest8.jpg" alt="Ejemplo de vista del reviewer aprobando los cambios" title="Vista del reviewer: aprobando los cambios">
+        <p>Vista del líder de proyectos realizando el merge de las ramas completas:</p>
+        <img src="../Imgs/pullRequest9.jpg" alt="Ejemplo de vista del líder de proyectos comenzando el merge de las ramas completas" title="Vista del líder de proyectos: comenzando el merge de las ramas completas">
+        <img src="../Imgs/pullRequest10.jpg" alt="Ejemplo de vista del líder de proyectos realizando el merge" title="Vista del líder de proyectos: realizando el merge">
+        <p>Vista del líder del proyecto. Una vez que el merge se realizó se puede eliminar la rama si es que ya no se utilizará, aunque esta opción no eliminará la rama en el entorno de trabajo en Git:</p>
+        <img src="../Imgs/pullRequest11.jpg" alt="Ejemplo de vista del líder de proyectos eliminando Branch (rama)" title="Vista del líder de proyectos: eliminando Branch (rama)">
+      </div>
+    </section>
+    <!-- Colaboración y Fork -->
+    <section class="container">
+      <div>
+        <h2>Colaboración.</h2>
+        <p>Un colaborador es un usuario que sugiere aportaciones al proyecto sin ser parte del equipo de trabajo del proyecto.</p>
+        <p>
+          Para ser un colaborador de algún proyecto se necesita:
+          <dl>
+            <dt>Activar Watch</dt>
+            <dd>Con esta función podremos recibir notificaciones en el momento en que haya conversaciones del proyecto.</dd>
+            <dt>Star</dt>
+            <dd>Indica que un proyecto nos gusta y nos permite recibir notificaciones si hay cambios en el proyecto.</dd>
+            <dt>Fork</dt>
+            <dd>Toma una copia del estado actual del proyecto y lo clona como un proyecto propio si es que el proyecto es público.</dd>
+          </dl>
+        </p>
+        <figure>
+          <img src="../Imgs/colab1.jpg" alt="Ejemplo de las funciones en GitHub para iniciar a colaborar" title="Funciones Watch, Star y Fork">
+        </figure>
+        <p>Se clona el proyecto al disco duro con la opción <i>code</i>, y depende si se implementaron la llave SSH o solo la HTTPS en tu computadora se selecciona la opción respectiva.</p>
+        <figure>
+          <img src="../Imgs/colab2.jpg" alt="Ejemplo de las funciones en GitHub para iniciar a colaborar" title="Funciones Watch, Star y Fork">
+        </figure>
+        <p>En la terminal de la computadora personal se posiciona en el directorio en el que se desea almacenar el proyecto que se clonó en GitHub con el comando <b>cd</b> y seguido a eso se usa el comando "<b>git clone <u>URL_copiada</u></b>" para copiar el proyecto al disco duro en el directorio especificado.</p>
+        <p>Si se hacen cambios y contribuciones al proyecto clonado se puede crear un <b>pull request</b> y nos conecta directamente con el proyecto original. Se puede pedir que se agreguen las contribuciones si es que no hay conflictos con el repositorio original, después se puede esperar, agregar comentarios al <i>pull request</i> o cerrar (eliminar) el <i>pull request</i>.</p>
+        <p>Si el dueño o líder del proyecto acepta el <i>pull request</i> le hará un merge.</p>
+        <h3>Fork</h3>
+        <p>Para mantener actualizado el proyecto se crea una rama especial</p>
         <dl>
-          <dt>git checkout main</dt>
-          <dd>Se deben crear las ramas desde la versión más resiente qu debería ser la rama main.</dd>
-          <dt>git branch <span>rama's_name</span></dt>
-          <dd>Se crea la rama.</dd>
-          <dt>git branch</dt>
-          <dd>Se verifica que se hayan creado las ramas.</dd>
-          <dt>git push origin <span>rama's_name</span></dt>
-          <p>Cuando se trabaja con un compañero en el proyecto, el creador del proyecto en GitHub le tiene que dar acceso al proyecto para que el compañero pueda subir sus aportaciones de código o para clonar el proyecto en caso de que sea privado.</p>
-          <figure>
-            <img src="../Imgs/rama1.jpg" alt="Paso 1 para dar acceso a un compañero al proyecto (settings)" title="Paso 1 para dar acceso a un compañero al proyecto (settings)">
-            <img src="../Imgs/rama2.jpg" alt="Paso 2 para dar acceso a un compañero al proyecto (manage access)" title="Paso 2 para dar acceso a un compañero al proyecto (manage access)">
-          </figure>
-          <p>Al darle acceso a un usuario para que modifique o aporte en nuestro proyecto, nos brindarán un link para compartirlo con el usuario colaborador e invitarlo al proyecto, una vez que acepte la invitación podrá iniciar a hacer aportaciones a nuestro proyecto.</p>
-          <dt>git pull origin <span>nombre_de_la_rama</span></dt>
-          <dd>Importamos la rama creada a nuestro repositorio del proyecto local.</dd>
-          <dt>git checkout <span>nombre_de_la_rama</span></dt>
-          <dd>Nos colocamos en la rama creada para trabajar en ella.</dd>
-          <dt>git commit -am "<span>mensaje_introductorio_del_commit</span>"</dt>
-          <dd>Una vez modificada la rama se agregan y guardan los cambios.</dd>
-          <dt>git pull origin <span>nombre_de_la_rama</span></dt>
-          <dd>Se importa el repositorio por si hay cambios de otros usuarios.</dd>
-          <dt>git push origin <span>nombre_de_la_rama</span></dt>
-          <dd>Se suben los cambios hechos a la rama.</dd>
-          <p>Generalmente es el lider del proyecto, product manager o el CTO el que se encarga de unir las ramas cuando ya el trabajo esta completado por lo que debe hacer pull con la rama que desea unir, después verifica que el código este correcto y...</p>
-          <dt>git checkout <span>main</span></dt>
-          <dd>Se dirige a la rama principal que es a la que se le adicionarán las aportaciones de las otras ramas.</dd>
-          <dt>git merge <span>nombre_de_la_rama_secundaria</span></dt>
-          <dd>Se le agregan las aportaciones de alguna rama secundaria a la rama principal.</dd>
-          <dt>git pull origin <span>main</span></dt>
-          <dd>Verifica que no hayan cambios externos que eviten hacer el push.</dd>
-          <dt>git push origin <span>main</span></dt>
-          <dd>Se sube a GitHub los cambios en el repositorio.</dd>
+          <dt>git remote add <u>upstream URL_(HTTPS_o_SSH)</u></dt>
+          <dd>Con este comando se crea una nueva rama, generalmente se usa el nombre "upstream" en la rama que se utiliza como un remoto para importar datos de un proyecto que es ajeno y así poder fusionarlo a la rama principal de nuestro proyecto importado.</dd>
+          <dd>El URL que se utiliza es el del proyecto ajeno que queremos clonar contantemente para mantener actualizados sus cambios.</dd>
+          <dt>git pull <u>upstream</u> main</dt>
+          <dd>Importa a "upstream" el contenido que hay en la rama "main".</dd>
+          <dt>git commit -am "<u>mensaje</u>"</dt>
+          <dd>Hace un commit a upstream.</dd>
+          <dt>git push origin main</dt>
+          <dd>Hace un push con los cambios.</dd>
         </dl>
+        <p>La rama "upstream" es un apuntador que apunta hacia el repositorio de GitHub original, cada que el proyecto original hace cambios, éste se actualizará con el pull y luego enviará los cambios a nuestro main local.</p>
       </div>
     </section>
   </main>

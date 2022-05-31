@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../Estilos/styleGit1.css">
+  <title>Comandos secuandarios</title>
+</head>
+<body class="body">
+  <header class="container">
+    <h1>Más comandos de git.</h1>
+  </header>
+  <main>
+    <section class="container">
+      <div>
+        <dl>
+          <dt>git config</dt>
+          <dd>
+            <dl>
+              <dt>git config</dt>
+              <dd>Muestra una lista de todas las configuraciones que tiene git y como funcionan.</dd>
+              <dt>git config --list</dt>
+              <dd>Muestra la configuracion por defecto del git y las que le faltan.</dd>
+              <dt>git config --list --show-origin</dt>
+              <dd>Muestra las configuraciones guardadas.</dd>
+              <dt>git config --global user.name "<u>NAME</u>"</dt>
+              <dd>Modifica la configuracion de los usuarios globales de git colocando un nombre.</dd>
+              <dt>git config --global user.email "<u>E-MAIL</u>"</dt>
+              <dd>Lo mismo pero coloca un e-mal.</dd>
+            </dl>
+          </dd>
+          <dt>alias <u>nombrarAlias</u>="<u>instrucción</u>"</dt>
+          <dd>Permite llamar una instrucción escribiendo solo un alias (ejemplo: alias arbolito="git log --all ...").</dd>
+          <dt>git config --global alias.<u>nombre_del_alias</u> "<u>instrucción</u>"</dt>
+          <dd>Guarda el alias en la terminal de git para evitar que se borre al reiniciar la computadora (Se manda llamar con: git <u>nombreDelAlias</u>).</dd>
+          <dt>git rebase <u>nombre_de_la_rama</u></dt>
+          <dd>
+            Con rebase puedes recoger todos los cambios confirmados en una rama y ponerlos sobre otra.
+            <p>
+              Primero se le hace un rebase a la rama a la que se aderirá la rama en la que se esta posicionado, con esto se actualizará automaticamente la rama en la que se esta posicionado con los ultimos cambios hechos a la rama especificada en el comando y después se hace un rebase a la rama que se le aderirá estando posicionado en la rama a la que se le aderirá, ejemplo:
+            </p>
+            <ul>
+              <li>(rama2)$ git rebase rama2</li>
+              <li>(main)$ git rebase rama2</li>
+            </ul>
+            <p>Primero se le hace rebase a la rama con los cambios que se aderirán y luego a la rama que va a quedar con todo unido.</p>
+            <p>Los problemas con éste comando son que no queda historia, no queda registro de las actividades de los usuarios y si hay muchos cambios entre ramas crea muchos conflictos que se tienen que resolver manualmente.</p>
+          </dd>
+          <p class="importnt">*REBASE solo se debe usar en repositorios locales y nunca en remotos.</p>
+          <dt>git stash</dt>
+          <dd>
+            <dl>
+              <p>Es una forma útil de tener almacenados en una memoria temporal los cambios recientes del proyecto, poder moverlos entre ramas y después volver a recuperarlos.</p>
+              <p>Podemos usar git stash para guardar cambios sin hacer commit y cambiar de rama.</p>
+              <p>git stash es usado cuando tenemos cambios que no merecen una rama o no merecen un rebase si no simplemente estamos probando algo y luego se necesita volver rápidamente a tu versión anterior la cual es la correcta.</p>
+              <dt>git stash</dt>
+              <dd>Teniendo cambios sin guardar en el proyecto, se aplica <i>git stash</i> y los cambios se guardarán en un área temporal haciendo que el proyecto vuelva a su forma antes de los cambios no guardados.</dd>
+              <dt>git stash list</dt>
+              <dd>Muestra una lista de stash guardados.</dd>
+              <dt>git stash pop</dt>
+              <dd>Aplica el stash guardado al proyecto de la rama en la que se esta posicionado.</dd>
+              <dt>git stash branch <u>nombre_de_la_rama</u></dt>
+              <dd>Crea una rama nueva copiando el proyecto y aplicandole los cambios guardados en stash.</dd>
+              <dt>git stash drop</dt>
+              <dd>Elimina el stage guardado.</dd>
+            </dl>
+          </dd>
+          <dt>git clean</dt>
+          <dd>
+            <dl>
+              <dt>git clean --dry-run</dt>
+              <dd>Simula una eliminación de archivos innecesarios (sin seguimiento que se puede indexar), muestra en pantalla los archivos que se eliminarían.</dd>
+              <dt>git clean -f</dt>
+              <dd>Elimina los archivos innecesarios mostrados con "dry-run".</dd>
+              <dt>git clean -df</dt>
+              <dd>Elimina los archivos y carpetas innecesarias.</dd>
+              <dt>git clean -xdf</dt>
+              <dd>Elimina los archivos y carpetas innecesarias aunque en el documento <i>.gitignore</i> estén indicadoas para ser ignoradas.</dd>
+            </dl>
+          </dd>
+          <dt>git cherry-pick <u>código_del_commit</u></dt>
+          <dd>Posicionado en una rama A, trae los cambios especificos realizados en un commit de la rama B.</dd>
+          <p class="inportnt">*Cherry-pick es una mala practica porque recontruye la historia del proyecto.</p>
+          <dt>git grep</dt>
+          <dd>
+            <dt>git grep "<u>palabra</u>"</dt>
+            <dd>(En donde use la palabra "...")<br/>Busca una palabra en todos los <u><b>documentos</b></u> de la rama del proyecto en donde se esta posicionado y muestra los <b>documentos</b> en donde se encuentra esa palabra junto con su línea de código.</dd>
+            <dt>git grep -n "<u>palabra</u>"</dt>
+            <dd>(En que lineas use la palabra "...")<br/>Busca la palabra en todos los <u><b>documentos</b></u> de la rama del proyecto en donde se esta posicionado y muestra los <b>documentos</b> en donde se encuentra esa palabra junto con su línea de código y la línea del código en donde se encuentra.</dd>
+            <dt>git grep -c "<u>palabra</u>"</dt>
+            <dd>(Cuantas veces use la palabra "...")<br/>Busca la palabra y muestra en que <u><b>documentos</b></u> se encuentra junto con las veces que se repite esa palabra en ese <u><b>documento</b></u>.</dd>
+          </dd>
+          <dt>git log -S "<u>palabra</u>"</dt>
+          <dd>(Cuantas veces use la palabra "..." en todos los <u><b>commits</b></u>)<br/>Busca y muestra los <u><b>commit</b></u> en los que esta involucrada la palabra especificada.</dd>
+        </dl>
+      </div>
+    </section>
+    <section class="container">
+      <div>
+        <dl>
+          <h3>Alias dentro de Git.</h3>
+          <dt>git shortlog -sn</dt>
+          <dd>Muestra cuantos commit han hecho cada miembro del equipo.</dd>
+          <dt>git shortlog -sn --all</dt>
+          <dd>Muestra cuantos commit han hecho cada miembro del equipo hasta los que han sido eliminado.</dd>
+          <dt>git shortlog -sn --all --no-merge</dt>
+          <dd>Muestra cuantos commit han hecho cada miembros quitando los eliminados sin los merges.</dd>
+          <dt>git blame -c <u>archivo</u></dt>
+          <dd>Muestra quien hizo cada cambio del proyecto línea por línea.</dd>
+          <dt>git <u>comando</u> --help</dt>
+          <dd>Muestra como funciona el comando especificado abriendo el navegador con el manual de cada comando.</dd>
+          <dt>git blame <u>archivo</u> -L<u>línea_inicial</u>,<u>línea_final</u> -c</dt>
+          <dd>Muestra quien hizo cada cosa línea por línea indicándole desde que línea ver, ejemplo: -L<u>35</u>,<u>50</u></dd>
+          <dt>git branch -r</dt>
+          <dd>Muestra todas las ramas remotas.</dd>
+          <dt>git branch -a</dt>
+          <dd>Muestra todas las ramas () locales (e) y remotas (e).
+            <ul>
+              <li>En verde y con asterisco la rama en la que se esta posicionado.</li>
+              <li>En color blanco las ramas locales.</li>
+              <li>En color ojo las ramas remotas.</li>
+            </ul>
+          </dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

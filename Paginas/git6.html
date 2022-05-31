@@ -4,76 +4,104 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pull request</title>
+  <link rel="stylesheet" href="../Estilos/styleGit1.css">
+  <title>GitHub-Pages y documentos</title>
 </head>
-<body>
-  <header>
-    <section>
-      <div>
-        <h1>Pull request</h1>
-      </div>
-    </section>
+<body class="body">
+  <header class="container">
+    <h1>GitHub-Pages</h1>
+    <p>GitHub tiene un servicio de hosting gratis llamado <a target="_blank" href="https://pages.github.com/">GitHub Pages</a>, tu puedes tener un repositorio donde el contenido del repositorio se vaya a GitHub y se vea online.</p>
   </header>
   <main>
-    <section>
+    <!-- <section>
+      <figure>
+        <img src="../Imgs/staging.jpg" alt="Comandos del stating (status, add, commit y reset)" title="Comandos del stating">
+        <img src="../Imgs/rm y reset.jpg" alt="Comandos rm y reset" title="Comandos rm y reset">
+        <img src="../Imgs/rm y reset 2.jpg" alt="Diferencia de comandos rm y reset" title="Diferencia de comandos rm y reset">
+        <img src="../Imgs/branch_merge.jpg" alt="Ramificación (branch y merge)" title="Ramificación (branch y merge)">
+      </figure>
+    </section> -->
+
+    <!-- GitHub-Pages -->
+    <section class="container">
       <div>
-        <p>
-          En un entorno profesional normalmente se bloquea la rama main, y para enviar código a dicha rama pasa por un "code review", ya que se realizan pruebas se envía el código a servidores que normalmente los llamamos "staging develop" (servidores de pruebas) luego de que se realizan las pruebas pertinentes tanto de código como de la aplicación, estos pasan a el servidor de producción con un "<b>pull request</b>" (también llamado "merge request" o "push request") que une los códigos. Todo esto generalmente lo hace el líder de proyecto o el DevOps (administrador del entorno de desarrollo).
-        </p>
+        <h2>Paso 1:</h2>
+        <p>Crear un repositorio público con el nombre del usuario agregandole ".github.io" (si ya tienes un repositorio con tu nombre de usuario solo cambiale el nombre dirigiendote a la pestaña Settings).</p>
         <figure>
-          <img src="../Imgs/pullRequest1.jpg" alt="Ejemplo de creación de un 'pull request' a mano" title="Creación de un 'pull request' a mano">
-          <figcaption>Pull request a mano.</figcaption>
+          <img src="../Imgs/ghPages1.jpg" alt="Ejemplo de creación del repositorio" title="Creción de repositorio">
         </figure>
+        <h2>Paso 2:</h2>
+        <p>Se copia el URL del repositorio dependiendo si se tiene configurada la llave SSH o no y desde la terminal git se clona el repositorio (se debe posicionarse en la carpeta donde se desea clonarlo) con el comando <b>git clone <u>URL</u></b>.</p>
         <figure>
-          <img src="../Imgs/pullRequest2.jpg" alt="Ejemplo de creación de un 'pull request' con ayuda de GitHub" title="Creación de un 'pull request' con ayuda de GitHub">
-          <img src="../Imgs/pullRequest3.jpg" alt="Ejemplo de creación de un 'pull request' con ayuda de GitHub" title="Creación de un 'pull request' con ayuda de GitHub">
-          <figcaption>Pull request directo.</figcaption>
+          <img src="../Imgs/colab2.jpg" alt="Ejemplo de copiado de URL (HTML o SSH) del repositorio" title="URL de repositorio">
         </figure>
-        <p>
-          Al <i>pull request</i> se le pueden agregar detalles:<br>
-          El título del <i>pull request</i> es el nombre del commit.<br/>
-          Se le puede colocar una descripción o un mensaje para quien lo revise.<br/>
-          En <u>reviewers</u> se le pueden agregar usuarios que lo reviser.<br/>
-          En <u>assignees</u> se le asigna a un usuario.<br/>
-          En <u>labels</u> se le pueden agregar etiquetas.<br/>
-          En <u>project</u> se agrupan repositorios dentro de GitHub.<br/>
-          En <u>milestone</u> se indica que se cumplió un objetivo que se tenía y que el <i>pull request</i> lo represeta.<br/>
-          Por último se presiona el botón "Crear pull request" para ejecutarlo y que las personas solicitadas revisen el <i>pull request</i>.
-        </p>
-        <p>
-          El <i>pull request</i> describe las acciones del código y el usuario correspondiente se encarga de revisar el código y pedir cambios o ejecutar el merge.
-        </p>
+        <h2>Paso 3:</h2>
+        <p>Se crea un achivo "index.html" dentro de la carpeta del proyecto con el nombre de usuario que se crea al clonar el repositorio y desde la terminal git se hace un <b>add</b> y <b>commit</b> para agregarlo a GitHub.</p>
+        <h2>Paso 4:</h2>
+        <p>Se configura el repositorio para que sea el que carga GitHub Pages entrando a la pestaña <b>Settings</b> y se selecciona la sección <b>Pages</b> en la que se verifica que se este usando la rama deseada que se visualizará en la página, generalmente es la rama <b>main</b>.</p>
         <figure>
-          <img src="../Imgs/pullRequest4.jpg" alt="Ejemplo de vista del asignado de revisión (reviewer) o cesionario (assignee)" title="Vista del asignado de revisión (reviewer) o cesionario (assignee)">
-          <img src="../Imgs/pullRequest5.jpg" alt="Ejemplo de vista del asignado de revisión (reviewer) o cesionario (assignee)" title="Vista del asignado de revisión (reviewer) o cesionario (assignee)">
-          <figcaption>Vista del reviewer o assignee del <i>pull request</i></figcaption>
+          <img src="../Imgs/rama1.jpg" alt="Ejemplo de la pestaña Settings" title="Pestaña Settings">
+          <img src="../Imgs/ghPages2.jpg" alt="Ejemplo de la sección Pages opción Source" title="Sección Pages">
         </figure>
-        <p>
-          Desde la pestaña "<i>Files changed</i>" se pueden agregar comentarios, aprobar el <i>merge</i> o pedir cambios al proyecto.
-        </p>
+        <h4>Tip:</h4>
+        <p>Se tienen que cargar los archivos en el repositorio que se quieran usar en la página como los archivos binarios.</p>
+        <h2>Paso Extra:</h2>
+        <p>Si se desea hacer los mismos pasos con un repositorio con otro nombre, se tiene que agreagar el origen de la página en el link, ejemplo:</p>
         <figure>
-          <img src="../Imgs/pullRequest6.jpg" alt="Ejemplo de vista del líder de proyecto respondiendo la solicitud del reviewer" title="Vista del líder de proyecto: respondiendo la solicitud del reviewer">
-          <figcaption>Vista del líder del proyecto ya listo para pedír de nuevo una revisión para autorizar un merge.</figcaption>
+          <img src="../Imgs/ghPages3.jpg" alt="Ejemplo del cambio de rama en un repositorio con un nombre distinto al nombre del usuario" title="Cambio de rama en la sección Pages">
+          <img src="../Imgs/ghPages4.jpg" alt="Ejemplo de error 404 con el link que genera GitHub" title="Error con el link generado">
         </figure>
+        <p>Al link que nos crea GitHub Pages: <u>https://patokuack.github.io/DisenoWeb/</u> se le adiciona la carpeta o archivo en donde se encuentra el documento a visualizar HTML: <u>HTML/Paginas/indexhtml.html</u></p>
+      </div>
+    </section>
+    <!-- GitIgnore -->
+    <section class="container">
+      <div>
+        <h2>GitIgnore</h2>
+        <p>Se crea un archivo nuevo y se guarda en la <b>raíz</b> del proyecto con el nombre de <b>.gitignore</b></p>
+        <p>En este documento se colocarán los tipos de archivo que se gnorarán al hacer push. Como es mala practica agregar archivos binarios a un repositorio, se agregarán las instrucciones correspondientes para que se ignoren los archivos que sean imágenes o videos.</p>
+        <code>
+          *.jpg<br/>
+          *.png<br/>
+          *.mp3<br/>
+        </code>
+        <p>La sintaxis de este archivo incluye:</p>
+        <dl>
+          <dt>#Texto</dt>
+          <dd>Con los "#" se colocan comentarios.</dd>
+          <dt>/content/tmp/*</dt>
+          <dd>Ignorará todo el contenido de la carpeta "tmp" que esta dentro de la carpeta "content" de la raíz del proyecto.</dd>
+          <dt>/apps/imagenes/**/*</dt>
+          <dd>Ignorará tod el contenido de todas las carpetas que estén en el directorio especificado.</dd>
+          <dt>!/content/**/README.md</dt>
+          <dd>El simbolo "!" es una excepción. Si se elimina algún archivo de cualquier carpeta que esté dentro de la carpeta content, no se eliminarán los "README.md".</dd>
+        </dl>
+      </div>
+    </section>
+    <!-- README.md -->
+    <section class="container">
+      <div>
+        <h2>README.md</h2>
+        <p>Es una excelente práctica en los proyectos, <b>md</b> significa Markdown, que es una especie de código que te permite cambiar la manera en que se ve un archivo de texto.</p>
+        <p>Lo interesante de Markdown es que funciona en muchas páginas, por ejemplo la edición en Wikipedia; es un lenguaje intermedio que no es HTML, no es texto plano, es una manera de crear excelentes texto formateados, pero puede interpretar código html y texto plano o texto de marcado como el uso de hash (#text) para marcar títulos o subtítulos (##text, ###text) dentro del contenido.</p>
+        <p>Se puede aprender mucho de los proyectos <i>opensource</i>, ejemplo: <a target="_blank" href="https://github.com/vuejs/vue" title="Proyecto ejemplo">vuejs/vue</a></p>
         <figure>
-          <img src="../Imgs/pullRequest7.jpg" alt="Ejemplo de vista del reviewer revisando los cambios" title="Vista del reviewer: revisando los cambios">
-          <figcaption>Vista del reviewer revisando los cambios. Se visualiza la última aportación o commit.</figcaption>
+          <img src="../Imgs/readmemd1.jpg" alt="Ejemplo del archivo README.md dentro del proyecto de vue" title="README.md dentro de vue">
+          <img src="../Imgs/readmemd2.jpg" alt="Botón de edición del archivo README.md" title="edición de README.md">
         </figure>
-        <figure>
-          <img src="../Imgs/pullRequest8.jpg" alt="Ejemplo de vista del reviewer aprobando los cambios" title="Vista del reviewer: aprobando los cambios">
-          <figcaption>Vista del reviewer aprobando los cambios.</figcaption>
-        </figure>
-        <figure>
-          <img src="../Imgs/pullRequest9.jpg" alt="Ejemplo de vista del líder de proyectos comenzando el merge de las ramas completas" title="Vista del líder de proyectos: comenzando el merge de las ramas completas">
-          <img src="../Imgs/pullRequest10.jpg" alt="Ejemplo de vista del líder de proyectos realizando el merge" title="Vista del líder de proyectos: realizando el merge">
-          <figcaption>Vista del líder de proyectos realizando el merge de las ramas completas.</figcaption>
-        </figure>
-        <figure>
-          <img src="../Imgs/pullRequest11.jpg" alt="Ejemplo de vista del líder de proyectos eliminando Branch (rama)" title="Vista del líder de proyectos: eliminando Branch (rama)">
-          <figcaption>Vista del líder del proyecto. Una vez que el merge se realizó se puede eliminar la rama si es que ya no se utilizará, aunque esta opción no eliminará la rama en el entorno de trabajo en Git.</figcaption>
-        </figure>
+        <p>Se puede editar el archivo README.md abriendolo directamente o mediante un editor online como <a target="_blank" href="https://pandao.github.io/editor.md/en.html" title="Editor online">MEditor.md</a></p>
+      </div>
+    </section>
+    <!-- Referencias -->
+    <section class="container">
+      <div>
+        <h3>Referencias:</h3>
+        <p><a target="_blank" href="https://platzi.com/clases/1557-git-github/23295-git-reset-vs-git-rm/">rm y reset</a></p>
+        <p><a target="_blank" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow Workflow</a></p>
+        <p><a target="_blank" href="https://danielkummer.github.io/git-flow-cheatsheet/">Git-flow cheatsheet</a></p>
       </div>
     </section>
   </main>
+  <script src="../Programacion/jsGit1.js"></script>
 </body>
 </html>

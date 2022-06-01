@@ -31,22 +31,22 @@
               <dt>git add <span>___.txt</span></dt>
               <dd>Agrega el archivo o sus cambios al repositorio (en la memoria RAM). se prepara para ingresarse a la base de datos.</dd>
               <dt>git add <span>.</span></dt>
-              <dd>Agrega todos los cambios que se hayan hecho a los archivos de la carpeta en donde se esta pocicionado.</dd>
+              <dd>Agrega todos los cambios que se hayan hecho a los archivos de la carpeta en donde se está posicionado.</dd>
             </dl>
           </dd>
           <dt>git commit</dt>
           <dd>
             <dl>
               <dt>git commit</dt>
-              <dd>Envia los ultimos cambios del archivo a la base de datos del sistema de control de versiones para controlar los cambios que se le hayan hecho. *Cada que se agregan (add) archivos se tiene que enviar los cambios a la base de datos (commit). Si no se le agrega mensaje se abre un VIN donde se coloca el mensaje con CTRL+i y se finaliza el VIN con <b>ESC</b> seguido de <b>SHIFT + Z</b> y por último se repite <b>SHIFT + Z</b>.</dd>
+              <dd>Envía los últimos cambios del archivo a la base de datos del sistema de control de versiónes para controlar los cambios que se le hayan hecho. *Cada que se agregan (add) archivos se tiene que enviar los cambios a la base de datos (commit). Si no se le agrega mensaje se abre un VIN donde se coloca el mensaje con CTRL+i y se finaliza el VIN con <b>ESC</b> seguido de <b>SHIFT + Z</b> y por último se repite <b>SHIFT + Z</b>.</dd>
               <dt>git commit -m "<span>mensaje</span>"</dt>
               <dd>La "-m" indica que se le agregará un mensaje para poder verlo en el futuro como una referencia del cambio.</dd>
               <dt>git commit -am "<span>mensaje</span>"</dt>
-              <dd>Hace un add junto con el commit y el mensaje, solo se debe utilizar con archivos que ya hayan sido ejecutados con un "git add" previamente, es decir, no funciona para archivos recien creados.</dd>
+              <dd>Hace un add junto con el commit y el mensaje, solo se debe utilizar con archivos que ya hayan sido ejecutados con un "git add" previamente, es decir, no funciona para archivos recién creados.</dd>
               <dt>git commit --amend</dt>
               <dd>
                 Incluye un cambio hecho al proyecto al último commit hecho, pero se debe de hacer un "add" antes de usar este commit. También esta instrucción da la opción de modificar el mensaje del commit en el que se guardarán estos últimos cambios.
-                <p class="inportnt">*No se utiliza con commits que ya esten en el repositorio remoto.</p>
+                <p class="inportnt">*No se utiliza con commits que ya estén en el repositorio remoto.</p>
               </dd>
             </dl>
           </dd>
@@ -58,7 +58,7 @@
           <dt>git merge <span>nombre_de_la_rama</span></dt>
           <dd>Usamos este comando con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo. Se debe posicionar en la rama a la que se le quieren fusionar los cambios (generalmente se posiciona en la rama principal, o sea main) y en el comando se coloca el nombre de la rama que se le quiere combinar.</dd>
           <dt>git pull</dt>
-          <dd>Basicamente, git fetch y git merge al mismo tiempo.</dd>
+          <dd>Básicamente, git fetch y git merge al mismo tiempo.</dd>
           <dt>git branch</dt>
           <dd>
             <dl>
@@ -83,13 +83,13 @@
           <dt>git checkout</dt>
           <dd>
             <p>
-              (Se deben guardar los cambios correspondientes en el repositorio actual antes de cambiar de version del commit o de rama).
+              (Se deben guardar los cambios correspondientes en el repositorio actual antes de cambiar de versión del commit o de rama).
             </p>
             <dl>
               <dt>git checkout <span>id-commit archivo.txt</span></dt>
-              <dd>Nos devuelve el archivo especificado a la version de commit especificada. Si se hace un commit en este estado se borrara todo lo creado despues de esta version.</dd>
+              <dd>Nos devuelve el archivo especificado a la versión de commit especificada. Si se hace un commit en este estado se borrará todo lo creado después de esta versión.</dd>
               <dt>git checkout main <span>archivo.txt</span></dt>
-              <dd>nos devuelve la ultima version del archivo especificado.</dd>
+              <dd>nos devuelve la última versión del archivo especificado.</dd>
               <dt>git checkout <span>nombre_de_la_rama</span></dt>
               <dd>Nos mueve a la rama especificada.</dd>
               <dt>git checkout -b <span>nombre_de_la_rama</span></dt>
@@ -104,7 +104,7 @@
               <dt>git remote -v</dt>
               <dd>Muestra el tipo de repositorio disponible, su URL y las acciones que se pueden hacer con él como usar fetch (importar proyectos) o push (exportar proyectos).</dd>
               <dt>git remote add origin <span>URL_(HTTPS_o_SSH)</span></dt>
-              <dd>Agrega un orígen remoto de nuestros archivos.</dd>
+              <dd>Agrega un origen remoto de nuestros archivos.</dd>
             </dl>
           </dd>
           <dt>git pull</dt>
@@ -121,14 +121,14 @@
           </dd>
           <dt>git push origin main</dt>
           <dd>Exporta o envía nuestro "origin" la rama "main" de GitHub.</dd>
-          <p class="importnt">* Es una buena practica siempre utilizar pull antes de editar cualquier cosa del proyecto para evitar conflictos o antes de hacer un push.</p>
+          <p class="importnt">* Es una buena práctica siempre utilizar pull antes de editar cualquier cosa del proyecto para evitar conflictos o antes de hacer un push.</p>
           <dt>cd ~</dt>
           <dd>La "~" (alt+126) nos dirige al home</dd>
           <p class="importnt">*Se crea una llave SSH por cada computadora.</p>
-          <p>Los tags o etiquetas nos permiten asignar versiones a los commits con cambios más importantes o significativos de nuestro proyecto. Son útiles en el sitio web de GitHub porque es la forma en que otros usuarios pueden visualizar que verciones ocurrieron y rara vez son útiles dentro del proyecto ya que solo se usrían para dejar un registro interno.</p>
+          <p>Los tags o etiquetas nos permiten asignar versiónes a los commits con cambios más importantes o significativos de nuestro proyecto. Son útiles en el sitio web de GitHub porque es la forma en que otros usuarios pueden visualizar que versiones ocurrieron y rara vez son útiles dentro del proyecto ya que solo se usarían para dejar un registro interno.</p>
           <figure>
             <img src="../Imgs/tag1.jpg" alt="ejemplo de la obtención de hash" title="ejemplo de la obtención de hash">
-            <figcaption>Primero se escoje y se copia uno de los <b>hash</b>s que se desea usar para crear el tag.</figcaption>
+            <figcaption>Primero se escoje y se copia uno de los <b>hash</b>'s que se desea usar para crear el tag.</figcaption>
           </figure>
           <dt>git tag</dt>
           <dd>
@@ -141,16 +141,16 @@
                 Generalmente se le coloca un nombre como v0.1 (versión 0.1 del proyecto).
               </dd>
               <dt>git show-ref --tag</dt>
-              <dd>Muestra a que hash o a que commit esta conectado un tag.</dd>
-              <p>Como los tags no son archivos no se envian con un simple push.</p>
+              <dd>Muestra a que hash o a que commit está conectado un tag.</dd>
+              <p>Como los tags no son archivos no se envían con un simple push.</p>
               <dt>git pull origin main</dt>
-              <dd>Como buena practica, antes de subir a la web un tag, se obtiene el repositorio de GitHub.</dd>
+              <dd>Como buena práctica, antes de subir a la web un tag, se obtiene el repositorio de GitHub.</dd>
               <dt>git push origin --tags</dt>
-              <dd>Le envia a origin los tags creados.</dd>
+              <dd>Le envía a origin los tags creados.</dd>
               <dt>git tag -d <span>nombre_del_tag</span></dt>
               <dd>Elimina un tag del proyecto en git (no de GitHub).</dd>
               <dt>git push origin :refs/tags/<span>nombre_del_tag</span></dt>
-              <dd>Elimina el tag de GitHub que esta conectado con el tag eliminado dentro del proyecto en git (puede que previamente se tenga que usar pull y push para subir la referencia del tag eliminado en el proyecto de git).</dd>
+              <dd>Elimina el tag de GitHub que está conectado con el tag eliminado dentro del proyecto en git (puede que previamente se tenga que usar pull y push para subir la referencia del tag eliminado en el proyecto de git).</dd>
             </dl>
           </dd>
           <figure>
@@ -186,13 +186,13 @@
               <dt>git reset --soft</dt>
               <dd>Borramos todo el historial y los registros de Git pero guardamos los cambios que tengamos en Staging, así podemos aplicar las últimas actualizaciones a un nuevo commit.</dd>
               <dt>git reset <span>id-commit</span> --soft</dt>
-              <dd>Se posiciona en la version especificada y elimina las versiones posteriores a esa del repositorio.</dd>
+              <dd>Se posiciona en la versión especificada y elimina las versiónes posteriores a esa del repositorio.</dd>
               <dt>git reset --hard</dt>
               <dd>Borra todo. Todo todito, absolutamente todo. Toda la información de los commits y del área de staging, se borra el historial.</dd>
               <dt>git reset --hard <span>id-commit</span></dt>
               <dd>
-                <u>Restaura los documentos</u> a la version especificada del repositorio y elimina las versiones posteriores de git y del disco duro.
-                <p class="importnt">*Es una mala practica.</p>
+                <u>Restaura los documentos</u> a la versión especificada del repositorio y elimina las versiónes posteriores de git y del disco duro.
+                <p class="importnt">*Es una mala práctica.</p>
               </dd>
               <dt>git reset HEAD</dt>
               <dd>Este es el comando para sacar archivos del área de Staging. No para borrarlos ni nada de eso, solo para que los últimos cambios de estos archivos no se envíen al último commit, a menos que cambiemos de opinión y los incluyamos de nuevo en staging con git add, por supuesto.</dd>
@@ -212,7 +212,7 @@
           <dd>
             <dl>
               <dt>git show</dt>
-              <dd>Muestra todos los cambios historicos hechos, cuando y quien hizo los cambios. También muestra a que apunta el HEAD (principalmente solo a 'main')</dd>
+              <dd>Muestra todos los cambios históricos hechos, cuando y quien hizo los cambios. También muestra a que apunta el HEAD (principalmente solo a 'main')</dd>
               <dt>git show <span>__.txt</span></dt>
               <dd>Muestra los cambios de un archivo especifico.</dd>
             </dl>
@@ -223,11 +223,11 @@
               <dt>git log <span>___.txt</span></dt>
               <dd>Muestra el historial completo del archivo.</dd>
               <dt>git log --stat</dt>
-              <dd>Muestra los cambios especificos realizados en los archivos apartir del commit.</dd>
+              <dd>Muestra los cambios específicos realizados en los archivos a partir del commit.</dd>
               <dt>git log --all</dt>
-              <dd>Muestra todo lo hecho historicamente.</dd>
+              <dd>Muestra todo lo hecho históricamente.</dd>
               <dt>git log --all --graph</dt>
-              <dd>Muestra por medio de unas lineas en el margen lateral como han funcionado las ramas.</dd>
+              <dd>Muestra por medio de unas líneas en el margen lateral como han funcionado las ramas.</dd>
               <dt>git log --all --graph --decorate --oneline</dt>
               <dd>Muestra toda la historia del proyecto desde que se inicializa.</dd>
               <dt>git log --oneline</dt>
@@ -242,7 +242,7 @@
               <dt>git diff</dt>
               <dd>Muestra los cambios entre los cambios guardados en la memoria RAM y los guardados en el disco duro.</dd>
               <dt>git diff <span>id-commit1 id-commit2</span></dt>
-              <dd>compara dos versiones guardadas de un archivo.</dd>
+              <dd>compara dos versiónes guardadas de un archivo.</dd>
             </dl>
           </dd>
         </dl>

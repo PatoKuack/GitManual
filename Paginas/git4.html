@@ -25,7 +25,7 @@
           <dt>git pull origin <u>nombre_de_la_rama</u></dt>
           <dd>Importa la rama creada o los cambios que esten en el repositorio remoto al repositorio local.</dd>
           <dt>git push origin <u>rama's_name</u></dt>
-          <dd>Manda los cambios de la rama en la que se esta posicionado a la rama especificada (rama's_name) del erpositorio remoto.</dd>
+          <dd>Manda los cambios de la rama en la que se está posicionado a la rama especificada (rama's_name) del repositorio remoto.</dd>
         </dl>
         <p>Cuando se trabaja con un compañero en el proyecto, el creador del proyecto en GitHub le tiene que dar acceso al proyecto para que el compañero pueda subir sus aportaciones de código o para clonar el proyecto en caso de que sea privado.</p>
         <img src="../Imgs/rama1.jpg" alt="Paso 1 para dar acceso a un compañero al proyecto (settings)" title="Paso 1 para dar acceso a un compañero al proyecto (settings)">
@@ -36,16 +36,16 @@
     <section class="container">
       <div>
         <h2>Merge.</h2>
-        <p>Generalmente es el lider del proyecto, product manager o el CTO el que se encarga de unir las ramas cuando ya el trabajo esta completado por lo que debe hacer pull con la rama que desea unir, después verifica que el código este correcto y hace un merge (union de ramas).</p>
+        <p>Generalmente es el líder del proyecto, product manager o el CTO el que se encarga de unir las ramas cuando ya el trabajo esta completado por lo que debe hacer pull con la rama que desea unir, después verifica que el código este correcto y hace un merge (unión de ramas).</p>
         <dl>
           <dt>git checkout <u>main</u></dt>
           <dd>Se dirige a la rama principal que es a la que se le adicionarán las aportaciones de las otras ramas.</dd>
           <dt>git merge <u>nombre_de_la_rama_secundaria</u></dt>
           <dd>Se le agregan las aportaciones de alguna rama secundaria a la rama principal.</dd>
-          <p>Al hacer un merge la rama secundaria desaparecerá y todo su contenido se guardará en la rama main, así que practicamente es como si se hicieran cambios en la rama main, se agregaran al stage (git add .) y se hiciera un commit.</p>
+          <p>Al hacer un merge la rama secundaria desaparecerá y todo su contenido se guardará en la rama main, así que prácticamente es como si se hicieran cambios en la rama main, se agregaran al stage (git add .) y se hiciera un commit.</p>
           <p>Al hacer el merge se abrirá un entorno dentro de la consola en el que se tiene que escribir un mensaje como si fuera un commit, después se presiona ESC, seguido de SHIFT + Z y de nuevo SHIFT + Z.</p>
           <dt>git pull origin <u>main</u></dt>
-          <dd>Verifica que no hayan cambios externos que eviten hacer el push.</dd>
+          <dd>Verifica que no haya cambios externos que eviten hacer el push.</dd>
           <dt>git push origin <u>main</u></dt>
           <dd>Se sube a GitHub los cambios en el repositorio.</dd>
         </dl>

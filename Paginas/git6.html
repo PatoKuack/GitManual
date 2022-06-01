@@ -10,7 +10,7 @@
 <body class="body">
   <header class="container">
     <h1>GitHub-Pages</h1>
-    <p>GitHub tiene un servicio de hosting gratis llamado <a target="_blank" href="https://pages.github.com/">GitHub Pages</a>, tu puedes tener un repositorio donde el contenido del repositorio se vaya a GitHub y se vea online.</p>
+    <p>GitHub tiene un servicio de hosting gratis llamado <a target="_blank" href="https://pages.github.com/">GitHub Pages</a>, con el que se puede tener un repositorio donde el contenido del repositorio se vaya a GitHub y se vea online.</p>
   </header>
   <main>
     <!-- <section>
@@ -26,7 +26,7 @@
     <section class="container">
       <div>
         <h2>Paso 1:</h2>
-        <p>Crear un repositorio público con el nombre del usuario agregandole ".github.io" (si ya tienes un repositorio con tu nombre de usuario solo cambiale el nombre dirigiendote a la pestaña Settings).</p>
+        <p>Crear un repositorio público con el nombre del usuario agregándole ".github.io" (si ya tienes un repositorio con tu nombre de usuario solo cámbiale el nombre dirigiéndote a la pestaña Settings).</p>
         <figure>
           <img src="../Imgs/ghPages1.jpg" alt="Ejemplo de creación del repositorio" title="Creción de repositorio">
         </figure>
@@ -36,9 +36,9 @@
           <img src="../Imgs/colab2.jpg" alt="Ejemplo de copiado de URL (HTML o SSH) del repositorio" title="URL de repositorio">
         </figure>
         <h2>Paso 3:</h2>
-        <p>Se crea un achivo "index.html" dentro de la carpeta del proyecto con el nombre de usuario que se crea al clonar el repositorio y desde la terminal git se hace un <b>add</b> y <b>commit</b> para agregarlo a GitHub.</p>
+        <p>Se crea un archivo "index.html" dentro de la carpeta del proyecto con el nombre de usuario que se crea al clonar el repositorio y desde la terminal git se hace un <b>add</b> y <b>commit</b> para agregarlo a GitHub.</p>
         <h2>Paso 4:</h2>
-        <p>Se configura el repositorio para que sea el que carga GitHub Pages entrando a la pestaña <b>Settings</b> y se selecciona la sección <b>Pages</b> en la que se verifica que se este usando la rama deseada que se visualizará en la página, generalmente es la rama <b>main</b>.</p>
+        <p>Se configura el repositorio para que sea el que carga GitHub Pages entrando a la pestaña <b>Settings</b> y se selecciona la sección <b>Pages</b> en la que se verifica que se esté usando la rama deseada que se visualizará en la página, generalmente es la rama <b>main</b>.</p>
         <figure>
           <img src="../Imgs/rama1.jpg" alt="Ejemplo de la pestaña Settings" title="Pestaña Settings">
           <img src="../Imgs/ghPages2.jpg" alt="Ejemplo de la sección Pages opción Source" title="Sección Pages">
@@ -46,7 +46,7 @@
         <h4>Tip:</h4>
         <p>Se tienen que cargar los archivos en el repositorio que se quieran usar en la página como los archivos binarios.</p>
         <h2>Paso Extra:</h2>
-        <p>Si se desea hacer los mismos pasos con un repositorio con otro nombre, se tiene que agreagar el origen de la página en el link, ejemplo:</p>
+        <p>Si se desea hacer los mismos pasos con un repositorio con otro nombre, se tiene que agregar el origen de la página en el link, ejemplo:</p>
         <figure>
           <img src="../Imgs/ghPages3.jpg" alt="Ejemplo del cambio de rama en un repositorio con un nombre distinto al nombre del usuario" title="Cambio de rama en la sección Pages">
           <img src="../Imgs/ghPages4.jpg" alt="Ejemplo de error 404 con el link que genera GitHub" title="Error con el link generado">
@@ -59,7 +59,7 @@
       <div>
         <h2>GitIgnore</h2>
         <p>Se crea un archivo nuevo y se guarda en la <b>raíz</b> del proyecto con el nombre de <b>.gitignore</b></p>
-        <p>En este documento se colocarán los tipos de archivo que se gnorarán al hacer push. Como es mala practica agregar archivos binarios a un repositorio, se agregarán las instrucciones correspondientes para que se ignoren los archivos que sean imágenes o videos.</p>
+        <p>En este documento se colocarán los tipos de archivo que se ignorarán al hacer push. Como es mala práctica agregar archivos binarios a un repositorio, se agregarán las instrucciones correspondientes para que se ignoren los archivos que sean imágenes o videos.</p>
         <code>
           *.jpg<br/>
           *.png<br/>
@@ -70,9 +70,9 @@
           <dt>#Texto</dt>
           <dd>Con los "#" se colocan comentarios.</dd>
           <dt>/content/tmp/*</dt>
-          <dd>Ignorará todo el contenido de la carpeta "tmp" que esta dentro de la carpeta "content" de la raíz del proyecto.</dd>
+          <dd>Ignorará todo el contenido de la carpeta "tmp" que está dentro de la carpeta "content" de la raíz del proyecto.</dd>
           <dt>/apps/imagenes/**/*</dt>
-          <dd>Ignorará tod el contenido de todas las carpetas que estén en el directorio especificado.</dd>
+          <dd>Ignorará todo el contenido de todas las carpetas que estén en el directorio especificado.</dd>
           <dt>!/content/**/README.md</dt>
           <dd>El simbolo "!" es una excepción. Si se elimina algún archivo de cualquier carpeta que esté dentro de la carpeta content, no se eliminarán los "README.md".</dd>
         </dl>
@@ -83,13 +83,13 @@
       <div>
         <h2>README.md</h2>
         <p>Es una excelente práctica en los proyectos, <b>md</b> significa Markdown, que es una especie de código que te permite cambiar la manera en que se ve un archivo de texto.</p>
-        <p>Lo interesante de Markdown es que funciona en muchas páginas, por ejemplo la edición en Wikipedia; es un lenguaje intermedio que no es HTML, no es texto plano, es una manera de crear excelentes texto formateados, pero puede interpretar código html y texto plano o texto de marcado como el uso de hash (#text) para marcar títulos o subtítulos (##text, ###text) dentro del contenido.</p>
+        <p>Lo interesante de Markdown es que funciona en muchas páginas, por ejemplo, la edición en Wikipedia; es un lenguaje intermedio que no es HTML, no es texto plano, es una manera de crear excelentes textos formateados, pero puede interpretar código html y texto plano o texto de marcado como el uso de hash (#text) para marcar títulos o subtítulos (##text, ###text) dentro del contenido.</p>
         <p>Se puede aprender mucho de los proyectos <i>opensource</i>, ejemplo: <a target="_blank" href="https://github.com/vuejs/vue" title="Proyecto ejemplo">vuejs/vue</a></p>
         <figure>
           <img src="../Imgs/readmemd1.jpg" alt="Ejemplo del archivo README.md dentro del proyecto de vue" title="README.md dentro de vue">
           <img src="../Imgs/readmemd2.jpg" alt="Botón de edición del archivo README.md" title="edición de README.md">
         </figure>
-        <p>Se puede editar el archivo README.md abriendolo directamente o mediante un editor online como <a target="_blank" href="https://pandao.github.io/editor.md/en.html" title="Editor online">MEditor.md</a></p>
+        <p>Se puede editar el archivo README.md abriéndolo directamente o mediante un editor online como <a target="_blank" href="https://pandao.github.io/editor.md/en.html" title="Editor online">MEditor.md</a></p>
       </div>
     </section>
     <!-- Referencias -->
